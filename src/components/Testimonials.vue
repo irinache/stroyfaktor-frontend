@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 class="text-uppercase text-center text-light">
+					<h2 class="text-uppercase text-center light-text">
 						Отзывы
 					</h2>
 				</div>
@@ -81,10 +81,10 @@ h2::after{
 .dark-bg{
 	background-color: @dark-bg;
 }	
-.text-light{
+.light-text{
 	color: @light_text;
 }
-.text-light:after{
+.light-text:after{
 	background-color: @light_text;
 }
 .testimonial{

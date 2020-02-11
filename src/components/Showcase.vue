@@ -111,20 +111,6 @@
 h2::after{
 	margin: 10px  auto 0 auto;
 }
-h3{
-	font-weight: bold;
-	font-size: 18px;
-	line-height: 22px;
-	margin-top: 20px;
-}
-h3:after{
-	content: " ";
-  display: block;
-  width: 80px;
-  height: 1px;
-  margin-top: 10px;
-  background-color: @main_color;
-}
 .medium-bg{
 	background-color: @medium-bg;
 }
