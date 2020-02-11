@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SliderBlock from './components/SliderBlock.vue'
+import Home from './components/Home.vue'
 
 
 Vue.use(Router)
@@ -13,7 +13,7 @@ export default new Router({
     {
       path: '/',
       name: 'main',
-      component: SliderBlock
+      component: Home
     },    
   ],
   /*scrollBehavior (to, from, savedPosition) {
