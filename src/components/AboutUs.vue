@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<div class="block position-relative">		
+	<div class="block">
+		<div class="group position-relative">		
 			<div class="about-pic left-pic pic-1">			
 			</div>
 			<div class="container">
@@ -24,7 +24,7 @@
 				</div>
 			</div>						
 		</div>
-		<div class="block position-relative">		
+		<div class="group position-relative">		
 			<div class="about-pic right-pic pic-2">			
 			</div>
 			<div class="container">
@@ -45,7 +45,7 @@
 				</div>
 			</div>						
 		</div>
-		<div class="block position-relative">		
+		<div class="group position-relative">		
 			<div class="about-pic left-pic pic-3">			
 			</div>
 			<div class="container">
@@ -77,21 +77,6 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
-h2{
-	font-weight: bold;
-	font-size: 36px;
-	line-height: 44px;
-	color: @dark-bg;
-	margin-bottom: 40px;
-}
-h2::after{
-	content: " ";
-  display: block;
-  width: 80px;
-  height: 1px;
-  margin-top: 10px;
-  background-color: #24292D;
-}
 .pic-1{
 	background: url(../assets/images/about-pic-1.png) no-repeat;
 	background-size: cover;	
@@ -122,12 +107,9 @@ h2::after{
 	position: absolute;
 	top: 0;
 }
-.block{
+.group{
 	margin-top: 80px; 
 	height: 500px;
-}
-.block:first-child{
-	margin-top: 120px; 
 }
 p{
 	line-height: 27px;
