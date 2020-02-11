@@ -14,7 +14,7 @@
 						<input type="text" name="name" placeholder="Ваше имя" >
 						<input type="text" name="phone" placeholder="Номер телефона">						
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 text-right">
 						<textarea name="question" placeholder="Напишите вопрос"></textarea>
 						<input type="submit" value="Отправить" class="button">
 					</div>
@@ -45,7 +45,7 @@ input, textarea{
 }
 textarea:focus, input:focus{
   outline: none;
-  background-color: rgba(255,255,255, 0.05);
+  background-color: rgba(255,255,255, 0.1);
 }
 textarea{
 height: 134px;
@@ -57,10 +57,10 @@ height: 134px;
 	border: none;
 	font-weight: bold;
 	transition: 0.4s;
+	width: 60%;
 }
 .button:hover{
 	background-color: @hover_main_color;
 	transition: 0.4s;
-}
-	
+}	
 </style>

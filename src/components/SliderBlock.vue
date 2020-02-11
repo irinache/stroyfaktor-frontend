@@ -39,7 +39,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="text-block">
-								<h3>Вас приветствует</h3>
+								<h4>Вас приветствует</h4>
 								<h1 class="text-uppercase">Строй фактор</h1>
 								<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do et dolore eiusmod tempor incididunt ut labore et dolore magna aliqua incididunt.
@@ -209,7 +209,7 @@ li {
 	background: url(../assets/images/slide3.jpg) no-repeat;
 	background-size: cover;
 }
-h3{
+h4{
 	margin-top: 150px;
 	text-align: left;
 	color: @light_text;
