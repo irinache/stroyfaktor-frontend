@@ -18,7 +18,11 @@ h2::after{
   height: 1px;
   margin-top: 10px;
   background-color: @dark-bg;
+  margin: 10px  auto 0 auto;
 }	
+.left-align::after{
+	margin: 10px  0 0 0 !important;
+}
 h3{
 	font-weight: bold;
 	font-size: 18px;
@@ -36,4 +40,16 @@ h3:after{
 .block{
 	padding-top: 120px;
 	padding-bottom: 145px; 
+}
+.dark-bg{
+	background-color: @dark-bg;
+}	
+.medium-bg{
+	background-color: @medium-bg;
+}
+.light-text{
+	color: @light_text !important;
+}
+.light-text:after{
+	background-color: @light_text !important;;
 }

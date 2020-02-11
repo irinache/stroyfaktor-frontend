@@ -8,7 +8,7 @@
 					<div class="col-md-6">
 					</div>
 					<div class="col-md-6">
-						<h2 class="text-uppercase">
+						<h2 class="text-uppercase left-align">
 							О нас
 						</h2>
 						<p>

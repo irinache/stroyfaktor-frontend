@@ -108,12 +108,6 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
-h2::after{
-	margin: 10px  auto 0 auto;
-}
-.medium-bg{
-	background-color: @medium-bg;
-}
 .item-card{	
 	height: 510px;
 	background-color: @light_text;

@@ -173,9 +173,6 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
-h2::after{
-	margin: 10px  auto 0 auto;
-}
 h3{
 	margin-bottom: 25px;
 }
@@ -193,7 +190,5 @@ table{
 }
 tr{
 	vertical-align: top;
-}
-
-	
+}	
 </style>

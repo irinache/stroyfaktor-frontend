@@ -75,18 +75,6 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
-h2::after{
-	margin: 10px  auto 0 auto;
-}
-.dark-bg{
-	background-color: @dark-bg;
-}	
-.light-text{
-	color: @light_text;
-}
-.light-text:after{
-	background-color: @light_text;
-}
 .testimonial{
 	padding: 20px;
 	width: 100%;
