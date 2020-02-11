@@ -146,7 +146,6 @@ h3:after{
 	line-height: 13px;
 	display: inline;
 }
-
 .info:first-of-type::after{
 	content: "";
 	display: inline-block;
@@ -196,7 +195,6 @@ h3:after{
 	transition: 0.4s;
 }
 .brdr-btn-dark-color:hover{
-	border: 1px solid @dark-bg;
 	color: @light_text;	
 	background-color: @dark-bg;
 	transition: 0.4s;
