@@ -28,6 +28,7 @@
 	height: 73px;
 	float: left;
 	display: inline-block;
+	cursor: pointer;
 }
 footer{
 	padding: 20px;

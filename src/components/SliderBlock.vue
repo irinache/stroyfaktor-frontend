@@ -22,7 +22,7 @@
 							<ul class="menu">
 								<li>Главная</li>
 								<li>О нас</li>
-								<li>Товары и услуги</li>
+								<li><router-link to="/categories">Товары и услуги</router-link></li>
 								<li>Отзывы</li>
 								<li>Контакты</li>
 								<li>
@@ -44,7 +44,7 @@
 								<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do et dolore eiusmod tempor incididunt ut labore et dolore magna aliqua incididunt.
 								</p>						
-								<router-link to="/">Перейти к  покупкам</router-link>													
+								<router-link class="button" to="/">Перейти к  покупкам</router-link>													
 							</div>
 							<div class="slider-nav">	
 								<div class="arr left" id="previous" v-on:click="clickPrev">						
@@ -132,6 +132,7 @@ header{
 	width: 110px;
 	height: 73px;
 	float: left;
+	cursor: pointer;
 }
 ul{
 	padding: 0;
@@ -144,6 +145,7 @@ li {
   list-style-type: none;
   color: @light_text;
   font-family: Montserrat Medium;
+  cursor: pointer;
 }
 .container{
 	position: relative;
@@ -240,7 +242,7 @@ p{
 	height: 50px;
 	width: 100%;
 }
-a{
+.button{
 	font-weight: bold;
 	font-size: 18px;
 	background-color: @main_color;
@@ -249,12 +251,23 @@ a{
 	box-sizing: border-box;
 	padding: 14px 0;
 	width: 270px;
-	text-align: center;		
+	text-align: center;	
+	transition: 0.4s;	
+}
+a{
+	color: @light_text;
+	transition: 0.4s;
 }
 a:hover{
 	text-decoration: none;
+	color: @main_color;
+	transition: 0.4s;
+}
+.button:hover{
+	text-decoration: none;
 	color: @light_text;
 	background-color: @hover_main_color;
+	transition: 0.4s;
 }
 .slider-nav{
 	text-align: right;	
