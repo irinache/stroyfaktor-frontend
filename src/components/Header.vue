@@ -13,8 +13,8 @@
 							<li>Отзывы</li>
 							<li>Контакты</li>
 							<li>
-								<div class="login">									
-								</div>
+								<router-link to="/login" class="login">									
+								</router-link>
 							</li>
 						</ul>
 					</header>

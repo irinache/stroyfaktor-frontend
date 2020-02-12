@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './components/Home.vue'
 import Categories from './components/Categories.vue'
 import ItemList from './components/ItemList.vue'
+import Login from './components/Login.vue'
 
 Vue.use(Router)
 
@@ -26,6 +27,11 @@ export default new Router({
       name: 'item_list',
       component: ItemList
     },  
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    }, 
   ],
   /*scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
