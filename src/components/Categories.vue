@@ -12,7 +12,7 @@
 				</div>	
 				<div class="row">
 					<div class="col-md-4 category-margin" v-for="c in categories" v-bind:key="c.id">
-						<router-link to="/item_list" class="category">
+						<router-link to="/item_list/item" class="category">
 							<div class="counter">
 								{{c.items_count}}
 							</div>
