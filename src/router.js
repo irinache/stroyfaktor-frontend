@@ -5,6 +5,7 @@ import Categories from './components/Categories.vue'
 import ItemList from './components/ItemList.vue'
 import Login from './components/Login.vue'
 import Registration from './components/Registration.vue'
+import ForgotPassword from './components/ForgotPassword.vue'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
       name: 'registration',
       component: Registration
     },  
+    {
+      path: '/forgot-password',
+      name: 'forgot-password',
+      component: ForgotPassword
+    },
 
   ],
   /*scrollBehavior (to, from, savedPosition) {

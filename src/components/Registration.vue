@@ -58,7 +58,7 @@ input{
 	width: 85%;
 	background-color: transparent;
 	border: 1px solid @dark-bg;
-	color: @light_text;
+	color: @dark-bg;
 }
 input:focus{
   outline: none;
@@ -92,6 +92,7 @@ form{
 	position: absolute;
 	width: 50%;
 	height:100%;
+	background-size: cover;
 }
 .center{
 	margin-top: 60px;
@@ -99,5 +100,6 @@ form{
 }
 section{
 	position: relative;
+	min-height: 820px;
 }
 </style>

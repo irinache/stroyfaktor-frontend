@@ -54,7 +54,7 @@ input{
 	width: 85%;
 	background-color: transparent;
 	border: 1px solid @dark-bg;
-	color: @light_text;
+	color: @dark-bg;
 }
 input:focus{
   outline: none;
@@ -85,6 +85,7 @@ form{
 }
 .image{
 	background: url("../assets/images/login-img.png");
+	background-size: cover;
 	position: absolute;
 	width: 50%;
 	height:100%;
@@ -95,5 +96,6 @@ form{
 }
 section{
 	position: relative;
+	min-height: 820px;
 }
 </style>
