@@ -113,9 +113,9 @@
 									Оставьте свой отзыв о товаре
 								</div>
 								<div class="btn-pos">
-									<div class="solid-button">
+									<router-link to="/item_list/item/add_testimonial" class="solid-button">
 										Добавить отзыв
-									</div>	
+									</router-link >	
 								</div>															
 							</div>
 							<div class="testimonial" v-for="t in item.testimonials" v-bind:key="t.id">
@@ -152,8 +152,7 @@
 <script>
 	import Header from "../components/Header.vue"
 	import Footer from "../components/Footer.vue"
-	export default{
-		name: 'Categories',
+	export default{	
 		components: {	
 			Header,		
 			Footer,

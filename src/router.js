@@ -4,6 +4,7 @@ import Home from './components/Home.vue'
 import Categories from './components/Categories.vue'
 import ItemList from './components/ItemList.vue'
 import Item from './components/Item.vue'
+import AddItemTestimonial from './components/AddItemTestimonial.vue'
 import Login from './components/Login.vue'
 import Registration from './components/Registration.vue'
 import ForgotPassword from './components/ForgotPassword.vue'
@@ -34,6 +35,11 @@ export default new Router({
       path: '/item_list/item',
       name: 'item',
       component: Item
+    },
+    {
+      path: '/item_list/item/add_testimonial',
+      name: 'add_testimonial',
+      component: AddItemTestimonial
     },  
     {
       path: '/login',
