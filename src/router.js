@@ -8,6 +8,7 @@ import AddItemTestimonial from './components/AddItemTestimonial.vue'
 import Login from './components/Login.vue'
 import Registration from './components/Registration.vue'
 import ForgotPassword from './components/ForgotPassword.vue'
+import Cart from './components/Cart.vue'
 
 Vue.use(Router)
 
@@ -56,7 +57,11 @@ export default new Router({
       name: 'forgot-password',
       component: ForgotPassword
     },
-
+    {
+      path: '/cart',
+      name: 'cart',
+      component: Cart
+    },
   ],
   /*scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }

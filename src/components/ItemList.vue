@@ -98,7 +98,7 @@
 					</div>
 					<div class="col-md-9">
 						
-						<div class="item-card" v-for="item in items" v-bind:key="item.id">
+						<router-link to="/item_list/item" class="item-card" v-for="item in items" v-bind:key="item.id">
 							<div class="card-container">
 								<h3>
 									{{ item.name }}					
@@ -120,7 +120,7 @@
 									Перезвоните мне
 								</div>
 							</div>	
-						</div>										
+						</router-link>										
 										
 					</div>
 				</div>			
