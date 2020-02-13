@@ -9,6 +9,7 @@ import Login from './components/Login.vue'
 import Registration from './components/Registration.vue'
 import ForgotPassword from './components/ForgotPassword.vue'
 import Cart from './components/Cart.vue'
+import Checkout from './components/Checkout.vue'
 
 Vue.use(Router)
 
@@ -61,6 +62,11 @@ export default new Router({
       path: '/cart',
       name: 'cart',
       component: Cart
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: Checkout
     },
   ],
   /*scrollBehavior (to, from, savedPosition) {

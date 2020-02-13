@@ -1,9 +1,9 @@
 <template>
-  <div class="cust-select" :tabindex="tabindex" @blur="open = false">
-    <div class="selected" :class="{open: open}" @click="open = !open">{{ selected }}</div>
-    <div class="items" :class="{selectHide: !open}">
+  <div class="cust-select" :tabindex="tabindex" @blur="open = false" >
+    <div class="selected" :class="{open: open,  select_border: bordered}" @click="open = !open">{{ selected }}</div>
+    <div class="items" :class="{selectHide: !open,  select_border: bordered}">
       <div
-        class="item"
+        class="item" 
         v-for="(option, i) of options"
         :key="i"
         @click="selected=option; open=false; $emit('input', option)"
@@ -15,9 +15,10 @@
 <script>
 export default {
   props: {
+    bordered: Boolean,
     options: {
       type: Array,
-      required: true
+      required: true,      
     },
     tabindex: {
       type: Number,
@@ -46,6 +47,10 @@ export default {
   outline: none;
   height: 47px;
   line-height: 47px;
+}
+.select_border{
+  outline: 1px solid @dark-bg;
+  outline-offset: -1px;
 }
 .selected {
   background-color: @light_text;  
@@ -77,6 +82,7 @@ export default {
   background-color:  @light_text;
   left: 0;
   right: 0;
+  z-index: 100;
 }
 .item {
   color: @dark-bg;
@@ -84,6 +90,7 @@ export default {
   cursor: pointer;
   user-select: none;
   transition: 0.2s;
+
 }
 .item:hover {
   background-color: @main_color;
