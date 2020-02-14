@@ -16,9 +16,9 @@
 							<div class="text">
 								В корзине нет товаров.
 							</div>
-							<div class="solid-button">
+							<router-link to="/categories" class="solid-button ml-0">
 								Начать покупки
-							</div>
+							</router-link>
 						</div>
 						<div v-show="!empty">
 							<div class="item" v-for="item in items" v-bind:key="item.id">

@@ -35,12 +35,12 @@
 									<td>ivan45364@gmail.com</td>
 								</tr>
 							</table>
-							<div class="bordered-button brdr-btn-main-color">
+							<router-link to="/change_password" class="bordered-button brdr-btn-main-color">
 								Изменить пароль
-							</div>
-							<div class="bordered-button brdr-btn-main-color">
+							</router-link>
+							<router-link to="/edit_profile" class="bordered-button brdr-btn-main-color">
 								Изменить профиль
-							</div>
+							</router-link>
 						</div>
 					</div>
 				</div>
@@ -62,45 +62,9 @@
 		},
 		data(){
 			return{
-				empty: false,
-				items: [
-				{
-					id: 1,
-					count: 1,
-					price: 226,
-					sum: 226
-				},
-				{
-					id: 2,
-					count: 1,
-					price: 226,
-					sum: 226
-				},
-				{
-					id: 3,
-					count: 1,
-					price: 229,
-					sum: 226
-				}
-				]								
+											
 			}	
-		},
-		methods:{
-			increaseCount: function(i){
-				i.count++;
-				i.sum = i.count*i.price;
-			},
-			decreaseCount: function(i){
-				if(i.count>1){					
-					i.count--;
-					i.sum = i.count*i.price;
-				}
-			},
-			deleteItem:function(i){
-				var removeIndex = this.items.map(function(i) { return i.id; }).indexOf(i.id);
-				this.items.splice(removeIndex, 1);
-			}
-		},
+		},		
 	}
 </script>
 

@@ -11,6 +11,10 @@ import ForgotPassword from './components/ForgotPassword.vue'
 import Cart from './components/Cart.vue'
 import Checkout from './components/Checkout.vue'
 import Profile from './components/Profile.vue'
+import ChangePassword from './components/ChangePassword.vue'
+import EditProfile from './components/EditProfile.vue'
+import OrderHistory from './components/OrderHistory.vue'
+
 
 Vue.use(Router)
 
@@ -73,6 +77,21 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile
+    },
+    {
+      path: '/change_password',
+      name: 'change_password',
+      component: ChangePassword
+    },
+    {
+      path: '/edit_profile',
+      name: 'edit_profile',
+      component: EditProfile
+    },
+    {
+      path: '/order_history',
+      name: 'order_history',
+      component: OrderHistory
     },
   ],
   /*scrollBehavior (to, from, savedPosition) {
