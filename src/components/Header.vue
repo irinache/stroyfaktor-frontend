@@ -10,7 +10,7 @@
 							<li>Главная</li>
 							<li>О нас</li>
 							<li><router-link to="/categories">Товары и услуги</router-link></li>
-							<li>Отзывы</li>
+							<li><router-link to="/testimonials">Отзывы</router-link></li>
 							<li>Контакты</li>
 							<li>
 								<router-link to="/login" class="login">									

@@ -14,6 +14,8 @@ import Profile from './components/Profile.vue'
 import ChangePassword from './components/ChangePassword.vue'
 import EditProfile from './components/EditProfile.vue'
 import OrderHistory from './components/OrderHistory.vue'
+import TestimonialsPage from './components/TestimonialsPage.vue'
+import AddTestimonial from './components/AddTestimonial.vue'
 
 
 Vue.use(Router)
@@ -92,6 +94,16 @@ export default new Router({
       path: '/order_history',
       name: 'order_history',
       component: OrderHistory
+    },
+    {
+      path: '/testimonials',
+      name: 'testimonials',
+      component: TestimonialsPage
+    },
+    {
+      path: '/add_testimonial',
+      name: 'add_testimonial',
+      component: AddTestimonial
     },
   ],
   /*scrollBehavior (to, from, savedPosition) {
