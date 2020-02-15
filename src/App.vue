@@ -2,16 +2,20 @@
   <div id="app">
      <router-view/>
      <CallMeBackModal /> 
+     <AddToCartModal />
   </div>
 </template>
 
 <script>
 import CallMeBackModal from "./components/CallMeBackModal.vue";
+import AddToCartModal from "./components/AddToCartModal.vue";
+
 export default {
 
   name: 'App',
   components: {
-    CallMeBackModal
+    CallMeBackModal,
+    AddToCartModal,
   },
   
 }

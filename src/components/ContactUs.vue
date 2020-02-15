@@ -11,12 +11,12 @@
 			<form action="" autocomplete="off">
 				<div class="row">
 					<div class="col-md-6">
-						<input type="text" name="name" placeholder="Ваше имя" >
-						<input type="text" name="phone" placeholder="Номер телефона">						
+						<input type="text" name="name" placeholder="Ваше имя" class="dark-input">
+						<input type="text" name="phone" placeholder="Номер телефона" class="dark-input">						
 					</div>
 					<div class="col-md-6 text-right">
-						<textarea name="question" placeholder="Напишите вопрос"></textarea>
-						<input type="submit" value="Отправить" class="button">
+						<textarea name="question" placeholder="Напишите вопрос" class="dark-input"></textarea>
+						<input type="submit" value="Отправить" class="button solid-button">
 					</div>
 				</div>	
 			</form> 
@@ -32,35 +32,15 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
-.col-margin{
-	//padding: 15px;
-}
-input, textarea{
-	margin-bottom: 30px;
-	padding: 13px 17px;
+input,textarea{
 	width: 100%;
-	background-color: transparent;
-	border: 1px solid @light_text;
-	color: @light_text;
-}
-textarea:focus, input:focus{
-  outline: none;
-  background-color: rgba(255,255,255, 0.1);
 }
 textarea{
 	height: 134px;
-	resize: none;
 }
 .button{
-	background-color: @main_color;
-	color: @light_text;
-	border: none;
-	font-weight: bold;
-	transition: 0.4s;
-	width: 60%;
+	margin-left: auto;
+	margin-right: 0;
 }
-.button:hover{
-	background-color: @hover_main_color;
-	transition: 0.4s;
-}	
+
 </style>

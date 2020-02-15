@@ -34,7 +34,7 @@ data() {
     },
   },
   mounted(){
-    this.$root.$on('modal-on', (isShown) => {this.switchModalCallMeBackState(isShown)});
+    this.$root.$on('modal-cmb-on', (isShown) => {this.switchModalCallMeBackState(isShown)});
   }
 }
 </script>
@@ -69,7 +69,7 @@ data() {
 }
 .modal-text {
   width: 450px;
-  margin: 0 auto 25px auto;
+  margin: 0 auto 5px auto;
 }
 
 .modal-default-button {
@@ -81,7 +81,8 @@ input{
   border: none;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 form{
 	text-align: center;
