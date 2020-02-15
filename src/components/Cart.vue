@@ -63,10 +63,10 @@
 								</div>
 							</div>
 							<div class="buttons">
-								<router-link to="/item_list" class="bordered-button brdr-btn-main-color">
+								<router-link to="/item_list" class="button brdr-btn-main-color d-inline-block">
 									Продолжить покупки
 								</router-link>
-								<router-link to="/checkout" class="solid-button">
+								<router-link to="/checkout" class="button solid-button d-inline-block">
 									Оформить заказ
 								</router-link>
 							</div>
@@ -139,40 +139,13 @@
 	font-size: 18px;
 	margin-bottom: 10px;
 }
-.solid-button{
-	width: 250px;
-	padding: 14px 0;	
-	background-color: @main_color;
-	text-align: center;
-	color: @light_text;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	margin-top: 20px;
-	margin-bottom: 15px;
-	display: inline-block;
-
-	margin-left: 30px;
-}
-.bordered-button{
-	width: 250px;
-	padding: 14px 0;
-	text-align: center;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	max-width: 250px;
-	display: inline-block;
-	margin-left: 30px;
-}
-.brdr-btn-main-color{
-	border: 1px solid @main_color;
-	color: @main_color;	
-}
 .item{
 	padding: 20px;
 	background-color: @light_text;
 	margin-bottom: 30px;
+}
+.button{
+	margin-left: 30px;
 }
 img{
 	width: 100px;
@@ -195,10 +168,6 @@ h4{
 	display: inline-block;
 	margin-left: 100px;
 	vertical-align: middle;
-	//height: 100%;
-	//margin-top: auto;
-	//margin-bottom: auto;	
-
 }
 .minus, .plus, .count{
 	padding: 0 25px;
@@ -230,6 +199,7 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance:textfield;
+  margin-bottom: 0;
 }
 .sum{
 	margin-left: 100px;

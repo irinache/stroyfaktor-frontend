@@ -112,10 +112,10 @@
 									<div class="price">
 										от 186 грн/кв.м.
 									</div>
-									<div class="solid-button">
+									<div class="small-button solid-button" @click.prevent="showAddedToCartModal">
 										Купить
 									</div>
-									<div class="bordered-button brdr-btn-main-color">
+									<div class="small-button brdr-btn-main-color" @click.prevent="showModalCallMeBack">
 										Перезвоните мне
 									</div>								
 							</router-link>
@@ -193,6 +193,14 @@ export default{
 				},				
 				]
 			}
+		},
+		methods:{
+			showAddedToCartModal() {    			
+				this.$root.$emit('modal-atc-on', true);		        	
+			},
+			showModalCallMeBack() {    			
+				this.$root.$emit('modal-cmb-on', true);		        	
+			},
 		}
 }
 </script>
@@ -244,4 +252,7 @@ input[type=checkbox]:checked + label {
   color: @main_color;
   font-weight: bold;
 } 
+.small-button{
+	margin-top: 15px;
+}
 </style>

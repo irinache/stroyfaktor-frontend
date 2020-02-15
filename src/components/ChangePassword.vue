@@ -16,9 +16,9 @@
 							<form action="" autocomplete="off">
 								<div class="row">
 									<div class="col-md-12">
-										<input type="password" name="old_password" placeholder="Старый пароль" >
-										<input type="password" name="new_password" placeholder="Новый пароль">
-										<input type="password" name="new_password_confirm" placeholder="Подтвердите пароль">						
+										<input type="password" name="old_password" v-model="old_password" placeholder="Старый пароль" >
+										<input type="password" name="new_password" v-model="new_password" placeholder="Новый пароль">
+										<input type="password" name="new_password_confirm" v-model="new_password_confirm" placeholder="Подтвердите пароль">						
 									</div>									
 								</div>	
 								<router-link to="/profile" class="bordered-button brdr-btn-main-color">
@@ -47,7 +47,9 @@
 		},
 		data(){
 			return{
-											
+				old_password: "",
+				new_password: "",
+				new_password_confirm: "",							
 			}	
 		},		
 	}

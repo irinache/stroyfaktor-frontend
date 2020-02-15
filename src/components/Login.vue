@@ -13,10 +13,10 @@
 								Вход
 							</h2>
 							<form action="" autocomplete="off">							
-								<input type="email" name="email" placeholder="Email" >
+								<input type="email" name="email" v-model="email" placeholder="Email" class="light-input">
 								<router-link to="/forgot-password" class="link d-block">Забыли пароль?</router-link>
-								<input type="password" name="password" placeholder="Пароль">		
-								<input type="submit" value="Войти" class="button">				
+								<input type="password" name="password" v-model="password" placeholder="Пароль" class="light-input">		
+								<input type="submit" value="Войти" class="button solid-button">				
 							</form>
 							<div class="center">
 								Нет аккаунта? <router-link to="/registration" class="link">Регистрация</router-link>
@@ -40,7 +40,8 @@
 		},
 		data(){
 			return{
-				
+				email: "",	
+				password: "",
 			}
 		}
 	}
@@ -48,40 +49,16 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
-input{
-	margin-bottom: 20px;
-	padding: 13px 17px;
-	width: 85%;
-	background-color: transparent;
-	border: 1px solid @dark-bg;
-	color: @dark-bg;
-}
-input:focus{
-  outline: none;
-  background-color: rgba(255,255,255, 0.1);
-}
-.button{
-	background-color: @main_color;
-	color: @light_text;
-	border: none;
-	font-weight: bold;
-	transition: 0.4s;
-	width: 60%;
-	margin-top: 40px;
-}
-.button:hover{
-	background-color: @hover_main_color;
-	transition: 0.4s;
-}	
 form{
 	text-align: center;
 }
-.link{
-	color: @main_color;
+input{
 	width: 85%;
-	margin: 0 auto;
-	text-align: right;	
-	font-weight: bold;
+}
+.button{
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .image{
 	background: url("../assets/images/login-img.png");

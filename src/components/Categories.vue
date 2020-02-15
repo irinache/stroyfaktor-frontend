@@ -144,7 +144,13 @@ h3:before{
 	width: 100%;
 	height: 450px;
 	background-color: @light_text;
+	color: @dark-bg;
 	text-align: center;
+	border: 1px solid transparent;
+}
+.category:hover{
+	color: @main_color;
+	border: 1px solid @main_color;
 }
 .counter{
 	position: absolute;

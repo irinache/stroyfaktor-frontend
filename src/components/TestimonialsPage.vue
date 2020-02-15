@@ -18,18 +18,16 @@
 							</div>							
 						</div>
 						<div v-show="!empty">
-							<div class="post-testimonial">
-								<div class="post-testimonial-text">
+							<div class="post-testimonial clearfix">
+								<div class="post-testimonial-text float-left">
 									Оставьте свой отзыв о товаре
 								</div>
-								<div class="btn-pos">
-									<router-link to="/add_testimonial" class="solid-button">
-										Добавить отзыв
-									</router-link >	
-								</div>															
+								<router-link to="/add_testimonial" class="button solid-button float-right">
+									Добавить отзыв
+								</router-link >												
 							</div>
-							<div class="testimonial" v-for="t in testimonials" v-bind:key="t.id">
-								<div class="info">
+							<div class="testimonial dark-t" v-for="t in testimonials" v-bind:key="t.id">
+								<div class="t-info">
 									<div class="name">
 										{{t.author}}
 									</div>
@@ -98,60 +96,8 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
-.testimonial{
-	padding: 20px;
-	width: 100%;
-	min-height: 100px;
-	background-color: @light_text;	
-	margin-bottom: 30px;
-}
-.testimonial-text{
-	display: inline-block;
-	color: @dark-bg;
-	width: 85%;
-	vertical-align: top;
-}
-.info{
-	display: inline-block;
-	color: @dark-bg;
-	width: 15%;
-	vertical-align: top;
-}
-.name{
-	font-weight: bold;
-	margin-bottom: 5px;
-}
 .item-margin{
 	padding: 15px;
 }
-.post-testimonial{
-	background-color: @light_text;	
-	padding: 15px 40px;
-	margin-bottom: 40px;
-}
-.post-testimonial-text{
-	font-weight: bold;
-	color: @main_color;
-	display: inline-block;
-	width: 50%;
-	font-size: 18px;
-}
-.btn-pos{
-	width:  50%;
-	display: inline-block;
-	text-align: right;
-}
-.solid-button{
-	width: 250px;
-	padding: 14px 0;	
-	background-color: @main_color;
-	text-align: center;
-	color: @light_text;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	margin-top: 20px;
-	margin-bottom: 15px;
-	display: inline-block;
-}
+
 </style>

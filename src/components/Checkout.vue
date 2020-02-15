@@ -17,11 +17,11 @@
 								<h4>
 									Информация о получателе:
 								</h4>
-								<input type="text" name="name" placeholder="Имя">
-								<input type="text" name="secname" placeholder="Отчество">
-								<input type="text" name="surname" placeholder="Фамилия">
-								<input type="text" name="phone" placeholder="Номер телефона">
-								<input type="teemailxt" name="email" placeholder="Email">
+								<input type="text" class="light-input" name="name" v-model="name" placeholder="Имя">
+								<input type="text" class="light-input" name="secname" v-model="secname"  placeholder="Отчество">
+								<input type="text" class="light-input" name="surname" v-model="surname"  placeholder="Фамилия">
+								<input type="text" class="light-input" name="phone" v-model="phone"  placeholder="Номер телефона">
+								<input type="email" class="light-input" name="email" v-model="email"  placeholder="Email">
 								<h4>
 									Способ доставки:
 								</h4>
@@ -38,11 +38,11 @@
 								<h4>
 									Комментарий:
 								</h4>
-								<textarea name="comment" placeholder="Напишите комментарий">								
+								<textarea class="light-input" name="comment" v-model="comment" placeholder="Напишите комментарий">								
 								</textarea>
-								<div class="text-right">
-									<div class="bordered-button brdr-btn-main-color">Назад</div>
-									<div class="solid-button">Подтвердить заказ</div>
+								<div class="text-right clearfix">
+									<router-link to="/cart" class="button brdr-btn-main-color float-left">Назад</router-link>
+									<div class="button solid-button float-right">Подтвердить заказ</div>
 								</div>							
 							</form>
 						</div>												
@@ -93,6 +93,15 @@
 		data(){
 			return{
 				nova_poshta: true,	
+				name: "",
+				secname: "",
+				surname: "",
+				phone: "",
+				email: "",
+
+
+				comment: "",
+
 				items: [
 				{
 					id: 1,
@@ -137,36 +146,6 @@
 	font-size: 18px;
 	margin-bottom: 10px;
 }
-.solid-button{
-	width: 250px;
-	padding: 14px 0;	
-	background-color: @main_color;
-	text-align: center;
-	color: @light_text;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	margin-top: 20px;
-	margin-bottom: 15px;
-	display: inline-block;
-
-	margin-left: 30px;
-}
-.bordered-button{
-	width: 250px;
-	padding: 14px 0;
-	text-align: center;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	max-width: 250px;
-	display: inline-block;
-	margin-left: 30px;
-}
-.brdr-btn-main-color{
-	border: 1px solid @main_color;
-	color: @main_color;	
-}
 .bg-block{
 	background-color: @light_text;
 	width: 100%;
@@ -177,20 +156,10 @@ h4{
 	margin-bottom: 25px;
 }
 input, textarea{
-	margin-bottom: 30px;
-	padding: 13px 17px;
 	width: 100%;
-	background-color: transparent;
-	border: 1px solid @dark-bg;
-	color: @dark-bg;
-}
-textarea:focus, input:focus{
-	outline: none;
-	background-color: rgba(255,255,255, 0.1);
 }
 textarea{
-	height: 134px;
-	resize: none;
+	height: 134px;	
 }
 .select-pos{
 	width: 100%;
@@ -229,5 +198,4 @@ textarea{
 	float: right;
 	line-height: 29px;
 }
-
 </style>

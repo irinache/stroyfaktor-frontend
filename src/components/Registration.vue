@@ -13,14 +13,14 @@
 								Регистрация
 							</h2>
 							<form action="" autocomplete="off">							
-								<input type="text" name="name" placeholder="Имя" >
-								<input type="text" name="secname" placeholder="Отчество" >
-								<input type="text" name="surname" placeholder="Фамилия" >
-								<input type="text" name="phone" placeholder="Телефон" >
-								<input type="email" name="email" placeholder="Email" >
-								<input type="password" name="password" placeholder="Пароль">
-								<input type="password" name="password" placeholder="Повторите пароль">		
-								<input type="submit" value="Зарегистрироваться" class="button">				
+								<input type="text" name="name" v-model="name" placeholder="Имя" class="light-input">
+								<input type="text" name="secname" v-model="secname" placeholder="Отчество" class="light-input">
+								<input type="text" name="surname" v-model="surname" placeholder="Фамилия" class="light-input">
+								<input type="text" name="phone" v-model="phone" placeholder="Телефон" class="light-input">
+								<input type="email" name="email" v-model="email"  placeholder="Email" class="light-input">
+								<input type="password" name="password" v-model="password" placeholder="Пароль" class="light-input">
+								<input type="password" name="password_confirm" v-model="password_confirm" placeholder="Повторите пароль" class="light-input">		
+								<input type="submit" value="Зарегистрироваться" v-model="name"  class="button solid-button">				
 							</form>
 							<div class="center">
 								Есть аккаунт? <router-link to="/login" class="link">Войти</router-link>
@@ -44,48 +44,30 @@
 		},
 		data(){
 			return{
-				
-			}
-		}
+				name: "",
+				secname: "",
+				surname: "",
+				phone: "",
+				email: "",	
+				password: "",
+				password_confirm: "",										
+			}	
+		},		
 	}
 </script>
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
 input{
-	margin-bottom: 20px;
-	padding: 13px 17px;
 	width: 85%;
-	background-color: transparent;
-	border: 1px solid @dark-bg;
-	color: @dark-bg;
-}
-input:focus{
-  outline: none;
-  background-color: rgba(255,255,255, 0.1);
 }
 .button{
-	background-color: @main_color;
-	color: @light_text;
-	border: none;
-	font-weight: bold;
-	transition: 0.4s;
-	width: 60%;
-	margin-top: 40px;
-}
-.button:hover{
-	background-color: @hover_main_color;
-	transition: 0.4s;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
 }	
 form{
 	text-align: center;
-}
-.link{
-	color: @main_color;
-	width: 85%;
-	margin: 0 auto;
-	text-align: right;	
-	font-weight: bold;
 }
 .image{
 	background: url("../assets/images/registration.png");

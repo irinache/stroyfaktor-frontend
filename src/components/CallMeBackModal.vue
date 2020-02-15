@@ -12,7 +12,7 @@
 						Оставьте свой номер телефона и представитель компании с вами свяжется.						
           </div>
           <form action="" autocomplete="off">							
-							<input type="phone" name="phone" placeholder="Номер телефона" class="light-input">								
+							<input type="phone" name="phone" placeholder="Номер телефона" v-model="phone_num" class="light-input">								
 							<input type="submit" value="Отправить" class="button solid-button text-center">				
 					</form>          
 				</div>
@@ -26,6 +26,7 @@
 data() {
     return{
       showModal: false,
+      phone_num: "",
     }     
   },
   methods:{

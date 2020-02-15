@@ -27,12 +27,12 @@
 								Под заказ, 7 дней
 							</div>
 							<div class="d-block">
-								<div class="solid-button">
+								<div class="solid-button button button-margin">
 								Купить
-							</div>
-							<div class="bordered-button brdr-btn-main-color">
-								Перезвоните мне
-							</div>
+								</div>
+								<div class="button brdr-btn-main-color  button-margin">
+									Перезвоните мне
+								</div>
 							</div>
 							
 						</div>
@@ -108,18 +108,16 @@
 							<h4>
 								Отзывы о товаре
 							</h4>
-							<div class="post-testimonial">
-								<div class="post-testimonial-text">
+							<div class="post-testimonial clearfix">
+								<div class="post-testimonial-text float-left">
 									Оставьте свой отзыв о товаре
 								</div>
-								<div class="btn-pos">
-									<router-link to="/item_list/item/add_testimonial" class="solid-button">
-										Добавить отзыв
-									</router-link >	
-								</div>															
+								<router-link to="/item_list/item/add_testimonial" class="button solid-button float-right">
+									Добавить отзыв
+								</router-link >												
 							</div>
-							<div class="testimonial" v-for="t in item.testimonials" v-bind:key="t.id">
-								<div class="info">
+							<div class="testimonial dark-t" v-for="t in item.testimonials" v-bind:key="t.id">
+								<div class="t-info">
 									<div class="name">
 										{{t.author}}
 									</div>
@@ -207,14 +205,18 @@ img{
 }
 h3{
 	margin-top: 0;
+	margin-bottom: 45px;
 }
 h4{
 	margin-top: 40px;
 	margin-bottom: 20px;
 }
-h3:after{
-  height: 2px;
+.button-margin{
+	display: inline-block;
+	margin-right: 30px;
+	margin-top: 30px;
 }
+
 .info-time, .info-opt{
 	font-size: 11px;
 	line-height: 13px;
@@ -237,34 +239,7 @@ h3:after{
 	font-weight: bold;	
 	margin: 15px 0;
 }
-.solid-button{
-	width: 250px;
-	padding: 14px 0;	
-	background-color: @main_color;
-	text-align: center;
-	color: @light_text;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	margin-top: 20px;
-	margin-bottom: 15px;
-	display: inline-block;
-}
-.bordered-button{
-	width: 250px;
-	padding: 14px 0;
-	text-align: center;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	max-width: 250px;
-	display: inline-block;
-	margin-left: 30px;
-}
-.brdr-btn-main-color{
-	border: 1px solid @main_color;
-	color: @main_color;	
-}
+
 .description{
 	margin-top: 40px;
 }
@@ -284,43 +259,8 @@ td, th{
 }
 .post-testimonial{
 	border: 1px solid @main_color;
-	padding: 15px 40px;
-	margin-bottom: 40px;
 }
-.post-testimonial-text{
-	font-weight: bold;
-	color: @main_color;
-	display: inline-block;
-	width: 50%;
-	font-size: 18px;
-}
-.btn-pos{
-	width:  50%;
-	display: inline-block;
-	text-align: right;
-}
-//------------------
 .testimonial{
-	padding: 20px;
-	width: 100%;
-	min-height: 100px;
 	border: 1px solid @dark-bg;
-	margin-bottom: 30px;
-}
-.testimonial-text{
-	display: inline-block;
-	color: @dark-bg;
-	width: 85%;
-	vertical-align: top;
-}
-.info{
-	display: inline-block;
-	color: @dark-bg;
-	width: 15%;
-	vertical-align: top;
-}
-.name{
-	font-weight: bold;
-	margin-bottom: 5px;
 }
 </style>

@@ -11,11 +11,11 @@
 			<form action="" autocomplete="off">
 				<div class="row">
 					<div class="col-md-6">
-						<input type="text" name="name" placeholder="Ваше имя" class="dark-input">
-						<input type="text" name="phone" placeholder="Номер телефона" class="dark-input">						
+						<input type="text" name="name" placeholder="Ваше имя" v-model="name" class="dark-input">
+						<input type="text" name="phone" placeholder="Номер телефона" v-model="phone_num" class="dark-input">						
 					</div>
 					<div class="col-md-6 text-right">
-						<textarea name="question" placeholder="Напишите вопрос" class="dark-input"></textarea>
+						<textarea name="question" placeholder="Напишите вопрос" class="dark-input" v-model="question"></textarea>
 						<input type="submit" value="Отправить" class="button solid-button">
 					</div>
 				</div>	
@@ -26,7 +26,13 @@
 
 <script>
 	export default{
-
+		data(){
+			return{
+				name: "",
+				phone_num: "",
+				question: ""				
+			}
+		}
 	}
 </script>
 

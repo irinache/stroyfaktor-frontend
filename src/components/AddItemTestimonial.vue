@@ -19,12 +19,14 @@
 							stars
 						</div>
 						<form>
-							<textarea name="question" placeholder="Напишите ваш отзыв">						
+							<textarea name="testimonial" v-model="testimonial" class="light-input" placeholder="Напишите ваш отзыв">						
 							</textarea>
-							<router-link to="/item_list/item" class="bordered-button brdr-btn-main-color">
-								Назад
-							</router-link>
-							<input type="submit" value="Отправить отзыв" class="solid-button">
+							<div class="clearfix">
+								<router-link to="/testimonials" class="button brdr-btn-main-color float-left">
+									Назад
+								</router-link>
+								<input type="submit" value="Отправить отзыв" class="button solid-button float-right">
+							</div>	
 						</form>
 					</div>
 				</div>
@@ -46,8 +48,7 @@
 		},
 		data(){
 			return{
-				
-								
+				testimonial: "",								
 			}	
 		}
 	}
@@ -56,20 +57,9 @@
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
 textarea{
-	margin-bottom: 30px;
-	padding: 13px 17px;
+	margin-bottom: 30px;	
 	width: 100%;
-	background-color: transparent;
-	border: 1px solid @dark-bg;
-	color: @dark-bg;
-}
-textarea:focus{
-  outline: none;
-  background-color: rgba(0,0,0, 0.02);
-}
-textarea{
-	height: 200px;
-	resize: none;
+	height: 200px;	
 }
 .text{
 	font-size: 18px;
@@ -84,33 +74,4 @@ textarea{
 	margin-bottom: 40px;
 	margin-top: 20px;
 }
-.solid-button{
-	width: 250px;
-	padding: 14px 0;	
-	background-color: @main_color;
-	text-align: center;
-	color: @light_text;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	margin-bottom: 15px;
-	display: inline-block;
-	border: none;
-	float: right;
-}
-.bordered-button{
-	width: 250px;
-	padding: 14px 0;
-	text-align: center;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	max-width: 250px;
-	display: inline-block;	
-	float: left;
-}
-.brdr-btn-main-color{
-	border: 1px solid @main_color;
-	color: @main_color;	
-}	
 </style>

@@ -16,11 +16,11 @@
 							<form action="" autocomplete="off">
 								<div class="row">
 									<div class="col-md-12">
-										<input type="text" name="name" placeholder="Имя" >
-										<input type="text" name="secname" placeholder="Отчество">
-										<input type="text" name="surname" placeholder="Фамилия">						
-										<input type="text" name="phone" placeholder="Телефон" >
-										<input type="email" name="email" placeholder="Email">										
+										<input type="text" name="name" v-model="name" placeholder="Имя" >
+										<input type="text" name="secname" v-model="secname" placeholder="Отчество">
+										<input type="text" name="surname" v-model="surname" placeholder="Фамилия">						
+										<input type="text" name="phone" v-model="phone" placeholder="Телефон" >
+										<input type="email" name="email" v-model="email" placeholder="Email">										
 									</div>									
 								</div>	
 								<router-link to="/profile" class="bordered-button brdr-btn-main-color">
@@ -49,7 +49,11 @@
 		},
 		data(){
 			return{
-											
+				name: "",
+				secname: "",
+				surname: "",
+				phone: "",
+				email: "",											
 			}	
 		},		
 	}
