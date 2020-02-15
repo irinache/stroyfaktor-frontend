@@ -4,14 +4,14 @@
 			<div class="row">
 				<div class="col-md-12">
 					<header>
-						<div class="logo">				
-						</div>
+						<router-link to="/" class="logo">				
+						</router-link>
 						<ul class="menu">
-							<li>Главная</li>
-							<li>О нас</li>
+							<li><router-link to="/">Главная</router-link></li>
+							<li><a href="/#about_us">О нас</a></li>
 							<li><router-link to="/categories">Товары и услуги</router-link></li>
 							<li><router-link to="/testimonials">Отзывы</router-link></li>
-							<li>Контакты</li>
+							<li><a href="/#contacts">Контакты</a></li>
 							<li>
 								<router-link to="/login" class="login">									
 								</router-link>
@@ -74,8 +74,13 @@ header{
 	display: inline-block;
 	background: url("../assets/images/login_icon.png") no-repeat;
 	background-size: contain;
-	width: 34px;
+	width: 36px;
 	height: 36px;
 	vertical-align: middle;
+	transition: 0.4s;	
+}
+.login:hover{
+	transition: 0.4s;	
+	background: url("../assets/images/login_icon_hover.png") no-repeat;	
 }
 </style>

@@ -1,16 +1,19 @@
 <template>
   <div id="app">
      <router-view/>
+     <CallMeBackModal /> 
   </div>
 </template>
 
 <script>
-
+import CallMeBackModal from "./components/CallMeBackModal.vue";
 export default {
+
   name: 'App',
   components: {
-
-  }
+    CallMeBackModal
+  },
+  
 }
 </script>
 

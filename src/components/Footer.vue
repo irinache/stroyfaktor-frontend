@@ -3,8 +3,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="logo">			
-					</div>
+					<router-link to="/" class="logo">				
+					</router-link>
 					<div class="text">
 						Компания ООО “СТРОЙ ФАКТОР”, 2020
 					</div>

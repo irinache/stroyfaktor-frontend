@@ -1,5 +1,5 @@
 <template>
-	<div class="block">
+	<div class="block" id="about_us">
 		<div class="group position-relative">		
 			<div class="about-pic left-pic pic-1">			
 			</div>

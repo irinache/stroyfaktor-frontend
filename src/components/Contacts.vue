@@ -1,5 +1,5 @@
 <template>
-	<div class="block">
+	<div class="block" id="contacts">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">

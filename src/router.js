@@ -24,6 +24,9 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  },
   routes: [
     {
       path: '/',
@@ -47,7 +50,7 @@ export default new Router({
     },
     {
       path: '/item_list/item/add_testimonial',
-      name: 'add_testimonial',
+      name: 'add_item_testimonial',
       component: AddItemTestimonial
     },  
     {
@@ -105,8 +108,5 @@ export default new Router({
       name: 'add_testimonial',
       component: AddTestimonial
     },
-  ],
-  /*scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  }*/
+  ],  
 })

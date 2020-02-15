@@ -15,7 +15,7 @@ h2::after{
 	content: " ";
   display: block;
   width: 80px;
-  height: 1px;
+  height: 1.2px;
   margin-top: 10px;
   background-color: @dark-bg;
   margin: 10px  auto 0 auto;
@@ -27,7 +27,7 @@ h3, h4{
 	font-weight: bold;
 	font-size: 18px;
 	line-height: 22px;
-	margin-top: 20px;
+	//margin-top: 20px;
 }
 h3:after{
 	content: " ";
@@ -44,7 +44,7 @@ h5{
 .block{
 	padding-top: 120px;
 	padding-bottom: 145px; 
-	min-height: 850px;
+	//min-height: 850px;
 }
 .dark-bg{
 	background-color: @dark-bg;
@@ -60,4 +60,124 @@ h5{
 }
 a:hover{
 	text-decoration: none;
+}
+
+//item card.css
+.item-card{	
+	height: 510px;	
+	width: 255px;
+	background-color: @light_text;
+	padding: 20px;
+	border: 1px solid transparent;
+	display: inline-block;
+	color: @dark-bg;
+	transition: 0.4s;
+}
+.item-card:hover{	
+	border: 1px solid @main_color;
+	color: @hover_main_color;
+	transition: 0.4s;
+}
+.item-img{
+	width: 100%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.item-container{	
+	display: inline-block;
+	padding: 15px;	
+	width: 285px;
+}
+.info{
+	font-size: 11px;
+	line-height: 13px;
+	display: inline;
+}
+.info:first-of-type::after{
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 20px;
+	background-color: @main_color;
+	vertical-align: middle;	
+	margin-left: 3px;
+	margin-right: 3px;
+}
+.price{
+	font-family: Montserrat SemiBold;
+	font-size: 14px;
+	line-height: 17px;
+	margin-top: 15px;
+}
+.solid-button{
+	transition: 0.4s;
+	background-color: @main_color;
+	color: @light_text;		
+}
+.solid-button:hover{
+	transition: 0.4s;
+	background-color: @hover_main_color;
+	color: @light_text;
+}
+.bordered-button{
+	//max-width: 250px;
+}
+.small-button{
+	width: 100%;
+	font-size: 16px;
+	padding: 10px 0;
+	text-align: center;
+	font-weight: bold;
+	line-height: 20px;
+}
+.button{
+	font-weight: bold;
+	font-size: 18px;
+	display: block;
+	box-sizing: border-box;
+	padding: 14px 0;
+	width: 270px;
+	text-align: center;	
+	transition: 0.4s;	
+}
+.brdr-btn-main-color{
+	border: 1px solid @main_color;
+	color: @main_color;	
+	transition: 0.4s;
+}
+.brdr-btn-main-color:hover{
+	border: 1px solid @hover_main_color;
+	background-color: @hover_main_color;
+	color: @light_text;	
+	transition: 0.4s;
+}
+.brdr-btn-dark-color{
+	border: 1px solid @dark-bg;
+	color: @dark-bg;	
+	transition: 0.4s;
+}
+.brdr-btn-dark-color:hover{
+	color: @light_text;	
+	background-color: @dark-bg;
+	transition: 0.4s;
+}
+//input styles
+input{
+	margin-bottom: 20px;
+	padding: 13px 17px;	
+	background-color: transparent;
+}
+.light-input{
+	border: 1px solid @dark-bg;
+	color: @dark-bg;
+}
+.light-input:focus{
+  outline: none;
+  background-color: rgba(0,0,0, 0.05);
+}
+.cross{
+	cursor: pointer;
+	width: 55px;
+	height: 55px;
+	background: url("../images/cross.png");	
 }

@@ -13,21 +13,46 @@
 				<div class="blackout">
 				</div>				
 			</div>
-			<div class="container">
+			<div class="container front">
 				<div class="row">
 					<div class="col-md-12">
 						<header>
-							<div class="logo">				
-							</div>
+							<router-link to="/" class="logo">				
+							</router-link>
 							<ul class="menu">
-								<li>Главная</li>
-								<li>О нас</li>
-								<li><router-link to="/categories">Товары и услуги</router-link></li>
-								<li>Отзывы</li>
-								<li>Контакты</li>
 								<li>
-									<div class="login">									
+									<router-link to="/">Главная</router-link>
+								</li>
+								<li> 
+									<transition name="bounce"><a href="#about_us">О нас</a></transition>
+								</li>
+								<li>									
+									<div class="dropdown">
+										<router-link to="/categories" class="drop-btn">Товары и услуги</router-link>
+										<div class="dropdown-content">
+											<a href="#">Металлочерепица</a>
+											<a href="#">Фальцевая кровля</a>
+											<a href="#">Битумная черепица</a>
+											<a href="#">Водосточные системы</a>
+											<a href="#">Профнастил</a>
+											<a href="#">Подкровельные пленки</a>
+											<a href="#">Раздвижные решетки на окна и двери</a>
+											<a href="#">Вентиляционные выходы</a>
+											<a href="#">Кровельные уплотнители для труб</a>
+											<a href="#">Композитная черепица</a>
+											<a href="#">FAKRO</a>
+											<a href="#">VELUX</a>								
+										</div>
 									</div>
+								</li>
+								<li>
+									<router-link to="/testimonials">Отзывы</router-link>
+								</li>
+								<li>
+									<a href="#contacts">Контакты</a>
+								</li>
+								<li>
+									<router-link to="/login" class="login"></router-link>
 								</li>
 							</ul>
 						</header>
@@ -44,7 +69,7 @@
 								<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do et dolore eiusmod tempor incididunt ut labore et dolore magna aliqua incididunt.
 								</p>						
-								<router-link class="button" to="/">Перейти к  покупкам</router-link>													
+								<router-link class="button solid-button" to="/categories">Перейти к  покупкам</router-link>												
 							</div>
 							<div class="slider-nav">	
 								<div class="arr left" id="previous" v-on:click="clickPrev">						
@@ -77,35 +102,31 @@
 			clickNext: function(){
 				this.pauseSlideshow();				
 				this.nextSlide();
-				//setTimeout(this.playSlideshow,3000);                
+				this.playSlideshow();                
 			},
 			clickPrev: function(){
 				this.pauseSlideshow();				
 				this.previousSlide();
-				//setTimeout(this.playSlideshow,3000);                
+				this.playSlideshow();                
 			},
 			nextSlide: function(){				
 				this.goToSlide(this.currentSlide+1);				
 			},
-			previousSlide: function(){
-				//this.pauseSlideshow();
-				this.goToSlide(this.currentSlide-1);
-				//setInterval(this.playSlideshow,3000);
+			previousSlide: function(){				
+				this.goToSlide(this.currentSlide-1);				
 			},
 			goToSlide: function(n){
 				this.slides[this.currentSlide].className = 'slide';
 				this.currentSlide = (n+this.slides.length)%this.slides.length;
 				this.slides[this.currentSlide].className = 'slide showing';
 			},
-			pauseSlideshow: function(){
-				//pauseButton.innerHTML = '&#9658;'; // play character
+			pauseSlideshow: function(){				
 				this.playing = false;
 				clearInterval(this.slideInterval);
 			},
 			playSlideshow: function(){
-				//pauseButton.innerHTML = '&#10074;&#10074;'; // pause character
 				this.playing = true;
-				this.slideInterval = setInterval(this.nextSlide,2000);
+				this.slideInterval = setInterval(this.nextSlide,3000);
 			}
 		},
 		mounted(){
@@ -121,11 +142,14 @@
 	height: 900px;
 }
 header{
-	margin-top: 30px;
+	margin-top: 20px;
 	height: 73px;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: center;	
+}
+.front{
+	z-index: 9999 !important;
 }
 .logo{
 	background: url("../assets/images/logo.png");
@@ -149,7 +173,7 @@ li {
 }
 .container{
 	position: relative;
-	z-index: 99;
+	z-index: 20;
 }
 .login{
 	display: inline-block;
@@ -158,6 +182,11 @@ li {
 	width: 36px;
 	height: 36px;
 	vertical-align: middle;
+	transition: 0.4s;	
+}
+.login:hover{
+	transition: 0.4s;	
+	background: url("../assets/images/login_icon_hover.png") no-repeat;	
 }
 .solid-field{
 	width: 40%;
@@ -242,18 +271,6 @@ p{
 	height: 50px;
 	width: 100%;
 }
-.button{
-	font-weight: bold;
-	font-size: 18px;
-	background-color: @main_color;
-	color: @light_text;
-	display: block;
-	box-sizing: border-box;
-	padding: 14px 0;
-	width: 270px;
-	text-align: center;	
-	transition: 0.4s;	
-}
 a{
 	color: @light_text;
 	transition: 0.4s;
@@ -261,12 +278,6 @@ a{
 a:hover{
 	text-decoration: none;
 	color: @main_color;
-	transition: 0.4s;
-}
-.button:hover{
-	text-decoration: none;
-	color: @light_text;
-	background-color: @hover_main_color;
 	transition: 0.4s;
 }
 .slider-nav{
@@ -282,10 +293,63 @@ a:hover{
 	background: url("../assets/images/arr.png") no-repeat;
 	background-position: center;
 }
+.arr:hover{
+	background-color: rgba(255,255,255, 0.1);
+}
 .left{
 	
 }
 .right{	
 	transform: rotate(180deg);	
+}
+.drop-btn { 
+  padding: 15px 0;
+  transition: 0.4s;	
+}
+.dropdown {  
+	position: relative;
+  display: inline-block;
+  z-index: 99;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin-top: 10px;
+  background-color: @light_text;
+  width: 320px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 99;
+  transition: 0.4s;	
+}
+.dropdown-content:before {
+  content: "";
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin-top: -20px;
+	margin-left: 20px;
+  border: 10px solid transparent; 
+  border-bottom: 10px solid @light_text; 
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: 0.4s;	
+
+}
+.dropdown-content a:hover {
+	transition: 0.4s;	
+	//font-weight: bold;
+	color: @main_color;
+}
+.dropdown:hover .dropdown-content {
+	transition: 0.4s;	
+	display: block;
+}
+.dropdown:hover .drop-btn {
+	transition: 0.4s;	
+	color: @main_color;
 }
 </style>

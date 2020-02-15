@@ -233,9 +233,6 @@ input[type=number] {
 	margin-left: 100px;
 }
 .cross{
-	width: 55px;
-	height: 55px;
-	background: url("../assets/images/cross.png");	
 	margin-left: auto;
 	margin-right: 0;
 }
