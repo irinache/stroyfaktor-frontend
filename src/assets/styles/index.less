@@ -222,9 +222,21 @@ textarea{
 	width: 55px;
 	height: 55px;
 	background: url("../images/cross.png");	
+	background-size: contain;	
 }
-.cross:hover{	s
-	background: url("../images/cross_hover.png");	
+.cross:hover{
+	background: url("../images/cross_hover.png");
+	background-size: contain;	
+}
+@media(max-width: 767px){
+  .cross{
+    width: 40px;
+    height: 40px;
+  }
+  .modal-container{
+    width: 90% !important; 
+    padding: 30px !important;
+  }
 }
 
 //testimonials styles
@@ -289,11 +301,25 @@ textarea{
 	margin-top: auto;
 	margin-bottom: auto;
 }
-
+@media(max-width: 767px){
+	.post-testimonial-text{
+		text-align: center;	
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.button{
+		width: 100%;
+	}
+}
+@media(max-width: 767px){
+	.block{
+		padding: 70px 0;
+	}
+}
 //auth
 .link{
 	color: @main_color;
-	width: 85%;
+	width: 100%;
 	margin: 0 auto;
 	text-align: right;	
 	font-weight: bold;

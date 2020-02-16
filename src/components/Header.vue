@@ -46,7 +46,7 @@
 											<router-link to="/testimonials">Отзывы</router-link>
 										</li>
 										<li>
-											<a href="#contacts">Контакты</a>
+											<a href="/#contacts">Контакты</a>
 										</li>
 										<li>
 											<router-link to="/login" class="login"><span class="login-text">Войти</span></router-link>
@@ -223,6 +223,7 @@ header{
 .login, .login:hover{
 	background: none;
 	height: auto;
+	width: 100%;
 }
 .login-text{
 	display: block;

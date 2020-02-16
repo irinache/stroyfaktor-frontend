@@ -11,26 +11,27 @@
 					</div>
 				</div>	
 				<div class="row">
-					<div class="col-md-12 add-block">
-						<div class="text">
-							Ваша оценка:
+					<div class="col-md-12">
+						<div class="test-block">
+							<div class="text">
+								Ваша оценка:
+							</div>
+							<div class="rating">
+								stars
+							</div>
+							<form>
+								<textarea name="testimonial" v-model="testimonial" class="light-input" placeholder="Напишите ваш отзыв">						
+								</textarea>
+								<div class="clearfix">
+									<router-link to="/testimonials" class="button brdr-btn-main-color float-left">
+										Назад
+									</router-link>
+									<input type="submit" value="Отправить отзыв" class="button solid-button float-right">
+								</div>							
+							</form>
 						</div>
-						<div class="rating">
-							stars
-						</div>
-						<form>
-							<textarea name="testimonial" v-model="testimonial" class="light-input" placeholder="Напишите ваш отзыв">						
-							</textarea>
-							<div class="clearfix">
-								<router-link to="/testimonials" class="button brdr-btn-main-color float-left">
-									Назад
-								</router-link>
-								<input type="submit" value="Отправить отзыв" class="button solid-button float-right">
-							</div>	
-						</form>
 					</div>
-				</div>
-					
+				</div>					
 			</div>
 		</div>
 		<Footer/>
@@ -64,14 +65,19 @@ textarea{
 .text{
 	font-size: 18px;
 }
-.add-block{
+.test-block{
 	background-color: @light_text;
 	width: 100%;
 	padding: 30px;
-	padding-bottom: 70px;
+	padding-bottom: 40px;
 }
 .rating{
 	margin-bottom: 40px;
 	margin-top: 20px;
+}
+@media(max-width: 767px){
+	.button{		
+		margin-bottom: 20px;
+	}
 }
 </style>

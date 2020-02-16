@@ -177,9 +177,24 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 /* Firefox */
 input[type=number] {
   -moz-appearance:textfield;
+}
+@media(max-width: 574px){
+  h2{
+    margin-top: 20px;
+  }
+  .cross{
+    top: 10px;
+    right: 10px;
+  }
+  .modal-text{
+    width: 90%;
+  }
+  .button{
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 </style>

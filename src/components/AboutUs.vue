@@ -80,20 +80,24 @@
 .pic-1{
 	background: url(../assets/images/about-pic-1.png) no-repeat;
 	background-size: cover;	
+	//background-position: right;
 }
 .pic-2{
 	background: url(../assets/images/about-pic-2.png) no-repeat;
-	background-size: cover;	
+	background-size: cover;
+	//background-position: right;	
 }
 .pic-3{
 	background: url(../assets/images/about-pic-3.png) no-repeat;
 	background-size: cover;	
+	//background-position: right;
 }
 .about-pic{
 	width: 47%;
 	height: 450px;
 	position: absolute;
 	top: 0;
+
 }
 .left-pic{
 	left:0;
@@ -111,6 +115,9 @@
 	margin-bottom: 80px; 
 	height: 500px;
 	height: auto;
+	max-width: 2000px;
+	margin-right: auto;
+	margin-left: auto;
 }
 p{
 	line-height: 27px;
@@ -135,7 +142,6 @@ p{
   bottom:-45px;
   right: 0;
 }
-
 @media(max-width: 767px){
 	.about-pic{
 		position: relative;

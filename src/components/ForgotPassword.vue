@@ -80,7 +80,7 @@
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
 input{
-	width: 85%;
+	width: 100%;
 }
 form{
 	text-align: center;
@@ -93,7 +93,7 @@ form{
 .image{
 	background: url("../assets/images/forgot-password-img.png");
 	position: absolute;
-	width: 50%;
+	width: 45%;
 	height:100%;
 	background-size: cover;
 }
@@ -107,5 +107,10 @@ section{
 }
 .text{
 	margin-bottom: 20px;
+}
+@media(max-width: 767px){
+	.image{
+		display: none;
+	}
 }
 </style>

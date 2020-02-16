@@ -49,11 +49,8 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
-form{
-	text-align: center;
-}
 input{
-	width: 85%;
+	width: 100%;
 }
 .button{
 	margin-top: 30px;
@@ -64,7 +61,7 @@ input{
 	background: url("../assets/images/login-img.png");
 	background-size: cover;
 	position: absolute;
-	width: 50%;
+	width: 45%;
 	height:100%;
 }
 .center{
@@ -74,5 +71,10 @@ input{
 section{
 	position: relative;
 	min-height: 820px;
+}
+@media(max-width: 767px){
+	.image{
+		display: none;
+	}
 }
 </style>

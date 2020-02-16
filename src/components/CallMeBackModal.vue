@@ -48,7 +48,7 @@ data() {
   z-index: 9998;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%;  
   height: 100%;
   background-color: rgba(0, 0, 0, .5);
   display: table;
@@ -69,7 +69,7 @@ data() {
   transition: all .3s ease;
 }
 .modal-text {
-  width: 450px;
+  width: 90%;
   margin: 0 auto 5px auto;
 }
 
@@ -116,5 +116,15 @@ form{
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+@media(max-width: 767px){
+  h2{
+    margin-top: 20px;
+  }
+  .cross{
+    top: 10px;
+    right: 10px;
+  }
 }
 </style>

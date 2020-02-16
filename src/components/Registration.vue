@@ -20,7 +20,7 @@
 								<input type="email" name="email" v-model="email"  placeholder="Email" class="light-input">
 								<input type="password" name="password" v-model="password" placeholder="Пароль" class="light-input">
 								<input type="password" name="password_confirm" v-model="password_confirm" placeholder="Повторите пароль" class="light-input">		
-								<input type="submit" value="Зарегистрироваться" v-model="name"  class="button solid-button">				
+								<input type="submit" value="Зарегистрироваться" class="button solid-button">				
 							</form>
 							<div class="center">
 								Есть аккаунт? <router-link to="/login" class="link">Войти</router-link>
@@ -59,20 +59,17 @@
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
 input{
-	width: 85%;
+	width: 100%;
 }
 .button{
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
 }	
-form{
-	text-align: center;
-}
 .image{
 	background: url("../assets/images/registration.png");
 	position: absolute;
-	width: 50%;
+	width: 45%;
 	height:100%;
 	background-size: cover;
 }
@@ -83,5 +80,11 @@ form{
 section{
 	position: relative;
 	min-height: 820px;
+}
+
+@media(max-width: 767px){
+	.image{
+		display: none;
+	}
 }
 </style>

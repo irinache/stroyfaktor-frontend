@@ -27,7 +27,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
   font-size: 18px; 
-  color: #2c3e50;  
+  color: #24292D; 
+ 
 }
 @media(max-width: 992px){
   #app{
