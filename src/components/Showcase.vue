@@ -8,31 +8,32 @@
 					</h2>
 				</div>
 			</div>	
-			<div class="row">				
-					<div class="item-container" v-for="item in items" v-bind:key="item.id">
-						<router-link to="/item_list/item" class="item-card">						
-								<h3>
-									{{ item.name }}					
-								</h3>
-								<img class="item-img" src="../assets/images/card-img.png" alt="Изображение товара">
-								<div class="info">
-									Оптом и в розницу
-								</div>
-								<div class="info">
-									Под заказ, 7 дней
-								</div>
-								<div class="price">
-									от 186 грн/кв.м.
-								</div>
-								<div class="solid-button small-button" @click.prevent="showAddedToCartModal">
-									Купить
-								</div>
-								<div class="small-button brdr-btn-main-color" @click.prevent="showModalCallMeBack">
-									Перезвоните мне
-								</div>
-							
-						</router-link>
-					</div>
+			<div class="row">	
+				
+						<div class="col-lg-3 col-md-4 col-sm-6 item-container text-left" v-for="item in items" v-bind:key="item.id">
+							<router-link to="/item_list/item" class="item-card">						
+									<h3>
+										{{ item.name }}					
+									</h3>
+									<img class="item-img" src="../assets/images/card-img.png" alt="Изображение товара">
+									<div class="info">
+										Оптом и в розницу
+									</div>
+									<div class="info">
+										Под заказ, 7 дней
+									</div>
+									<div class="price">
+										от 186 грн/кв.м.
+									</div>
+									<div class="solid-button small-button" @click.prevent="showAddedToCartModal">
+										Купить
+									</div>
+									<div class="small-button brdr-btn-main-color" @click.prevent="showModalCallMeBack">
+										Перезвоните мне
+									</div>							
+							</router-link>
+						</div>
+					
 			</div>	
 			<div class="row">
 				<div class="col-md-12">
@@ -121,5 +122,4 @@
 .small-button{
 	margin-top: 15px;
 }
-
 </style>

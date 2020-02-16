@@ -81,4 +81,5 @@
 .btn-pos{
 	margin: 60px auto 0 auto;
 }
+
 </style>

@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<Header class="solid-header"/>	
 		<div class="slider-block">
 			<div class="solid-field">				
 			</div>
@@ -12,49 +13,53 @@
 				</div>
 				<div class="blackout">
 				</div>				
-			</div>
+			</div>			
 			<div class="container front">
 				<div class="row">
-					<div class="col-md-12">
-						<header>
+					<div class="col-md-12">						
+						<header class="transparent-header">
 							<router-link to="/" class="logo">				
 							</router-link>
-							<ul class="menu">
-								<li>
-									<router-link to="/">Главная</router-link>
-								</li>
-								<li> 
-									<transition name="bounce"><a href="#about_us">О нас</a></transition>
-								</li>
-								<li>									
-									<div class="dropdown">
-										<router-link to="/categories" class="drop-btn">Товары и услуги</router-link>
-										<div class="dropdown-content">
-											<a href="#">Металлочерепица</a>
-											<a href="#">Фальцевая кровля</a>
-											<a href="#">Битумная черепица</a>
-											<a href="#">Водосточные системы</a>
-											<a href="#">Профнастил</a>
-											<a href="#">Подкровельные пленки</a>
-											<a href="#">Раздвижные решетки на окна и двери</a>
-											<a href="#">Вентиляционные выходы</a>
-											<a href="#">Кровельные уплотнители для труб</a>
-											<a href="#">Композитная черепица</a>
-											<a href="#">FAKRO</a>
-											<a href="#">VELUX</a>								
-										</div>
-									</div>
-								</li>
-								<li>
-									<router-link to="/testimonials">Отзывы</router-link>
-								</li>
-								<li>
-									<a href="#contacts">Контакты</a>
-								</li>
-								<li>
-									<router-link to="/login" class="login"></router-link>
-								</li>
-							</ul>
+							<nav>
+								
+									<ul>
+										<li>
+											<router-link to="/">Главная</router-link>
+										</li>
+										<li> 
+											<transition name="bounce"><a href="#about_us">О нас</a></transition>
+										</li>
+										<li>									
+											<div class="dropdown">
+												<router-link to="/categories" class="drop-btn">Товары и услуги</router-link>
+												<div class="dropdown-content">
+													<a href="#">Металлочерепица</a>
+													<a href="#">Фальцевая кровля</a>
+													<a href="#">Битумная черепица</a>
+													<a href="#">Водосточные системы</a>
+													<a href="#">Профнастил</a>
+													<a href="#">Подкровельные пленки</a>
+													<a href="#">Раздвижные решетки на окна и двери</a>
+													<a href="#">Вентиляционные выходы</a>
+													<a href="#">Кровельные уплотнители для труб</a>
+													<a href="#">Композитная черепица</a>
+													<a href="#">FAKRO</a>
+													<a href="#">VELUX</a>								
+												</div>
+											</div>
+										</li>
+										<li>
+											<router-link to="/testimonials">Отзывы</router-link>
+										</li>
+										<li>
+											<a href="#contacts">Контакты</a>
+										</li>
+										<li>
+											<router-link to="/login" class="login"><span class="login-text">Войти</span></router-link>
+										</li>									
+									</ul>
+																	
+							</nav>							
 						</header>
 					</div>
 				</div>			
@@ -89,14 +94,19 @@
 </template>
 
 <script>
+	import Header from "../components/Header.vue"
 	export default {
 		data() {
 			return{
 				slides: [],
 				currentSlide: 0,
 				playing: true,
-				slideInterval: {}
+				slideInterval: {},
+				show: false,
 			}			
+		},
+		components:{
+			Header,
 		},
 		methods:{
 			clickNext: function(){
@@ -137,6 +147,10 @@
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
+.menu, .clear{
+	display: none;
+	color: @light_text;
+}
 .slider-block{
 	position: relative;
 	height: 900px;
@@ -188,6 +202,9 @@ li {
 	transition: 0.4s;	
 	background: url("../assets/images/login_icon_hover.png") no-repeat;	
 }
+.login-text{
+		display: none;
+	}
 .solid-field{
 	width: 40%;
 	height: 900px;
@@ -354,4 +371,72 @@ a:hover{
 	transition: 0.4s;	
 	color: @main_color;
 }
+.solid-header{
+	display: none;
+}
+
+@media(max-width: 992px){
+	.solid-field{
+		width: 50%;
+	}
+	.slider{
+		width: 50%;
+	}
+	.slider-nav{
+		margin-top: 80px;
+	}
+}
+@media(max-width: 767px){
+	.solid-field{
+		display: none;
+
+	}
+	.slider{
+		width:100%;
+	}
+	.blackout{
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+	header{
+		isplay: none;
+	}
+	.solid-header{
+		display: block;
+		z-index: 10;
+	}
+	.transparent-header{
+		display: none;
+	}
+	h4{
+		margin-top: 100px;
+		font-size: 20px;
+		margin-bottom: 0;
+	}
+	h1{
+		font-size: 52px;
+	}
+	p{
+		font-size: 18px;
+		width: 80%;
+	}
+	.slider-nav{
+		margin-top: 220px;
+	}
+}
+@media(max-width: 466px){
+	.slider-nav{
+		margin-top: 130px;
+	}
+	h1, h4, p{
+		text-align: center;
+		width: 100%;		
+	}
+}
+@media(max-width: 347px){
+	.slider-nav{
+		width: 100%;
+		margin-top: 100px;
+	}
+}
+
 </style>

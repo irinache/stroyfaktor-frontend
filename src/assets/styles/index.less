@@ -20,6 +20,16 @@ h2::after{
   background-color: @dark-bg;
   margin: 10px  auto 0 auto;
 }	
+@media(max-width: 438px){
+	h2{
+		font-size: 30px;
+	}
+}
+@media(max-width: 370px){
+	h2{
+		font-size: 26px;
+	}
+}
 .left-align::after{
 	margin: 10px  0 0 0 !important;
 }
@@ -65,7 +75,7 @@ a:hover{
 //item card.css
 .item-card{	
 	height: 510px;	
-	width: 255px;
+	width: 100%;
 	background-color: @light_text;
 	padding: 20px;
 	border: 1px solid transparent;
@@ -86,10 +96,10 @@ a:hover{
 .item-container{	
 	display: inline-block;
 	padding: 15px;	
-	width: 285px;
+	width: 100%;
 }
 .info{
-	font-size: 11px;
+	font-size: 10px;
 	line-height: 13px;
 	display: inline;
 }
@@ -108,6 +118,11 @@ a:hover{
 	font-size: 14px;
 	line-height: 17px;
 	margin-top: 15px;
+}
+@media(max-width: 576px){
+	.item-card{	
+		height: fit-content;
+	}
 }
 .solid-button{
 	transition: 0.4s;
@@ -161,6 +176,21 @@ a:hover{
 	color: @light_text;	
 	background-color: @dark-bg;
 	transition: 0.4s;
+}
+.brdr-btn-light-color{
+	border: 1px solid @light_text;
+	color: @light_text;	
+	transition: 0.4s;
+}
+.brdr-btn-light-color:hover{
+	color: @dark-bg;	
+	background-color: @light_text;
+	transition: 0.4s;
+}
+@media(max-width: 466px){
+	.button{
+		width: 100%;
+	}
 }
 //input styles
 input,textarea{
@@ -226,16 +256,24 @@ textarea{
 	font-weight: bold;
 	margin-bottom: 5px;
 }
-.brdr-btn-light-color{
-	border: 1px solid @light_text;
-	color: @light_text;	
-	transition: 0.4s;
+@media(max-width: 767px){
+	.t-info{		
+		width: 25%;		
+	}
+	.testimonial-text{			
+		width: 75%;		
+	}
 }
-.brdr-btn-light-color:hover{
-	color: @dark-bg;	
-	background-color: @light_text;
-	transition: 0.4s;
+@media(max-width: 466px){
+	.t-info, .testimonial-text{		
+		display: block;	
+		width: 100%;	
+	}	
+	.t-info{
+		margin-bottom: 25px;
+	}
 }
+
 .post-testimonial{
 	background-color: @light_text;	
 	padding: 25px 40px;

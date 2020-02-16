@@ -11,7 +11,7 @@
 					</div>
 				</div>	
 				<div class="row">
-					<div class="col-md-4 category-margin" v-for="c in categories" v-bind:key="c.id">
+					<div class="col-lg-4 col-sm-6 category-margin" v-for="c in categories" v-bind:key="c.id">
 						<router-link to="/item_list" class="category">
 							<div class="counter">
 								{{c.items_count}}
@@ -135,14 +135,15 @@ h3:before{
 	padding: 15px;
 }
 .image{
-	width: 312px;
-	height: 312px;
-	margin: 20px auto 15px auto;
+	width: 100%;
+	height: width;
+	margin-bottom: 15px;
 }
 .category{
 	display: block;
+	padding: 15px 15px 35px 15px;
 	width: 100%;
-	height: 450px;
+	height: fir-content;
 	background-color: @light_text;
 	color: @dark-bg;
 	text-align: center;

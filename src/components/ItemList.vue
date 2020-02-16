@@ -97,7 +97,7 @@
 						</div>					
 					</div>
 					<div class="col-md-9 p-0">						
-						<div class="item-container" v-for="item in items" v-bind:key="item.id">
+						<div class=" col-lg-4 col-md-6 col-sm-6 item-container" v-for="item in items" v-bind:key="item.id">
 							<router-link to="/item_list/item" class="item-card">						
 									<h3>
 										{{ item.name }}					

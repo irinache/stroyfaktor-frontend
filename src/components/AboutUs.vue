@@ -1,13 +1,11 @@
 <template>
 	<div class="block" id="about_us">
-		<div class="group position-relative">		
-			<div class="about-pic left-pic pic-1">			
-			</div>
+		<div class="group position-relative">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 text-block-right">
 						<h2 class="text-uppercase left-align">
 							О нас
 						</h2>
@@ -22,14 +20,14 @@
 						</p>
 					</div>
 				</div>
+			</div>
+			<div class="about-pic left-pic pic-1">			
 			</div>						
 		</div>
-		<div class="group position-relative">		
-			<div class="about-pic right-pic pic-2">			
-			</div>
+		<div class="group position-relative">			
 			<div class="container">
 				<div class="row">					
-					<div class="col-md-6">
+					<div class="col-md-6 text-block-left">
 						<p>
 							Перед приобретением любой продукции Вы можете ознакомиться с ее образцами в нашем офисе, где представлены кровельные, фасадные и другие сопутствующие материалы ведущих производителей.
 						</p>
@@ -43,16 +41,16 @@
 					<div class="col-md-6">
 					</div>
 				</div>
+			</div>
+			<div class="about-pic right-pic pic-2">			
 			</div>						
 		</div>
-		<div class="group position-relative">		
-			<div class="about-pic left-pic pic-3">			
-			</div>
+		<div class="group position-relative">				
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 text-block-right">
 						<p>
 							Вся предлагаемая нами продукция прошла необходимую сертификацию, что подтверждается соответствующими документами. Мы знаем возможности продаваемых товаров и можем гарантировать их надежность.
 						</p>
@@ -64,7 +62,9 @@
 						</p>
 					</div>
 				</div>
-			</div>						
+			</div>	
+			<div class="about-pic left-pic pic-3">			
+			</div>					
 		</div>
 	</div>
 </template>
@@ -108,8 +108,9 @@
 	top: 0;
 }
 .group{
-	margin-top: 80px; 
+	margin-bottom: 80px; 
 	height: 500px;
+	height: auto;
 }
 p{
 	line-height: 27px;
@@ -133,5 +134,16 @@ p{
   position: absolute;
   bottom:-45px;
   right: 0;
+}
+
+@media(max-width: 767px){
+	.about-pic{
+		position: relative;
+		width: 100%;
+		margin-top: 20px
+	}	
+	.block{
+		padding-bottom: 0 100px 0;
+	}
 }
 </style>

@@ -13,13 +13,13 @@
 				</iframe>
 			</div>
 			<div class="row contact-info">
-				<div class="col-md-9">
+				<div class="col-md-9  col-sm-8">
 					<h3>
 						Информация о компании ООО “СТРОЙ ФАКТОР”:
 					</h3>
 					<table class="big-table">
 					<tr>
-						<td>
+						<td class="bold">
 							Контактное лицо:
 						</td>
 						<td>
@@ -27,7 +27,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td  class="bold">
 							Адрес:
 						</td>
 						<td>
@@ -37,7 +37,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td  class="bold">
 							Телефон:
 						</td>
 						<td>
@@ -50,7 +50,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td  class="bold">
 							Электронная почта:
 						</td>
 						<td>
@@ -58,7 +58,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td  class="bold">
 							Организационно-правовая форма:
 						</td>
 						<td>
@@ -67,7 +67,7 @@
 					</tr>
 				</table>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-sm-4">
 					<h3>
 						График работы:
 					</h3>
@@ -190,5 +190,19 @@ table{
 }
 tr{
 	vertical-align: top;
-}	
+}
+.bold{
+	font-weight: bold;
+}
+@media(max-width: 768px){
+	td{
+		display: block;
+	}
+	.big-table>tr>td{
+		padding: 5px 5px 5px 0;
+	}
+	.small-table>tr>td{
+		padding: 2px 20px 2px 0;
+	}
+}
 </style>
