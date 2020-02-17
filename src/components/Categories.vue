@@ -22,13 +22,11 @@
 							</h3>						
 						</router-link>						
 					</div>
-				</div>
-					
+				</div>					
 			</div>
 		</div>
 		<Footer/>
-	</div>
-	
+	</div>	
 </template>
 
 <script>

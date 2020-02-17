@@ -69,8 +69,7 @@ input{
 	text-align: center;
 }
 section{
-	position: relative;
-	min-height: 820px;
+	position: relative;	
 }
 @media(max-width: 767px){
 	.image{

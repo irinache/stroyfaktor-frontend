@@ -102,8 +102,7 @@ form{
 	margin-top: 20px;
 }
 section{
-	position: relative;
-	min-height: 820px;
+	position: relative;	
 }
 .text{
 	margin-bottom: 20px;

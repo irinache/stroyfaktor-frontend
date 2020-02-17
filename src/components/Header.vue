@@ -21,7 +21,7 @@
 											<router-link to="/">Главная</router-link>
 										</li>
 										<li> 
-											<transition name="bounce"><a href="#about_us">О нас</a></transition>
+											<transition name="bounce"><a href="/#about_us">О нас</a></transition>
 										</li>
 										<li>									
 											<div class="dropdown">
@@ -137,7 +137,7 @@ header{
 .login{	
 	display: inline-block;
 	background: url("../assets/images/login_icon.png") no-repeat;
-	background-size: contain;
+	//background-size: contain;
 	width: 36px;
 	height: 36px;
 	vertical-align: middle;

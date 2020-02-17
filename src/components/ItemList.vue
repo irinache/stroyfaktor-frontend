@@ -17,85 +17,80 @@
 						</div>
 					</div>
 				</div>	
-				<div class="row">
+				<div class="row sort-margin">
 					<div class="col-md-12">
-						<div class="right">
+						<div class="icon-pos">
+							<div class="filter-show" v-if="!show" @click="show = !show" key="filter-show">										
+							</div>
+							<div class="filter-hide" v-else @click="show = !show" key="filter-hide">										
+							</div>
+						</div>							
+						<div class="sort-pos right">
 							<div class="text">
 								Сортировка
 							</div>
 							<CustomSelect :options="['по порядку', 'по росту цены', 'по снижению цены']" :bordered="false" class="select-pos"/>
-						</div>						
-					</div>
+						</div>					
+					</div>		
 				</div>	
 				<div class="row">
-					<div class="col-md-3">
-						<div class="sidebar">
-							<h3>
-								Тип товара
-							</h3>
-							<ul>
-								<li>
-									<router-link to="/item_list" class="selected">Металлочерепица</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Фальцевая кровля</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Битумная черепица</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Водосточные системы</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Профнастил</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Подкровельные пленки</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Раздвижные решетки на окна и двери</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Вентиляционные выходы</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Кровельные уплотнители для труб</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">Композитная черепица</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">FAKRO</router-link>
-								</li>
-								<li>
-									<router-link to="/item_list">VELUX</router-link>
-								</li>	
-							</ul>
-							<h3>
-								Производитель
-							</h3>
-							<ul>
-								<li>
-									<div>
-										<input type="checkbox" id="kerabit" name="kerabit" checked>
-										<label>Kerabit</label>
-									</div>
-									<div>
-										<input type="checkbox" id="tegola_canadese" name="tegola_canadese">
-										<label>Tegola Canadese</label>
-									</div>
-									<div>
-										<input type="checkbox" id="metrotile" name="metrotile">
-										<label>Metrotile</label>
-									</div>
-									<div>
-										<input type="checkbox" id="rainway" name="rainway">
-										<label>Rainway</label>
-									</div>
-								</li>								
-							</ul>
-						</div>					
-					</div>
+					<div class="col-md-3 col-sm-12">
+						<nav>							
+							<transition name = "fade">
+								<div v-if="show" class="sidebar">
+									<h3>
+										Тип товара
+									</h3>
+									<ul>
+										<li>
+											<router-link to="/item_list" class="selected">Металлочерепица</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Фальцевая кровля</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Битумная черепица</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Водосточные системы</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Профнастил</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Подкровельные пленки</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Раздвижные решетки на окна и двери</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Вентиляционные выходы</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Кровельные уплотнители для труб</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">Композитная черепица</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">FAKRO</router-link>
+										</li>
+										<li>
+											<router-link to="/item_list">VELUX</router-link>
+										</li>	
+									</ul>
+									<h3>
+										Производитель
+									</h3>
+									<ul>
+										<li>
+											<CustomCheckbox v-for="m in manufacturers" v-bind:key="m.name">{{m.name}}</CustomCheckbox>	
+										</li>								
+									</ul>
+								</div>
+							</transition>									
+						</nav>	
+					</div>					
 					<div class="col-md-9 p-0">						
 						<div class=" col-lg-4 col-md-6 col-sm-6 item-container" v-for="item in items" v-bind:key="item.id">
 							<router-link to="/item_list/item" class="item-card">						
@@ -132,15 +127,19 @@
 import Header from "../components/Header.vue"
 import Footer from "../components/Footer.vue"
 import CustomSelect from "../components/CustomSelect.vue";
+import CustomCheckbox from "../components/CustomCheckbox.vue";
+
 
 export default{
 	components: {	
 		Header,	
 		CustomSelect,	
+		CustomCheckbox,
 		Footer,
 	},	
 	data(){
 			return{
+				show: true,
 				items:
 				[
 				{
@@ -191,6 +190,20 @@ export default{
 					img: "",
 					price: "от 186 грн/кв.м.",
 				},				
+				],
+				manufacturers:[
+				{
+					name: "Kerabit"
+				},
+				{
+					name: "Tegola Canadese"
+				},
+				{
+					name: "Metrotile"
+				},
+				{
+					name: "Rainway"
+				},
 				]
 			}
 		},
@@ -201,6 +214,23 @@ export default{
 			showModalCallMeBack() {    			
 				this.$root.$emit('modal-cmb-on', true);		        	
 			},
+			onResize(){
+				if(document.documentElement.clientWidth <= 767) {
+					this.show = false;
+				}
+				else{
+					this.show = true;
+				}
+			},
+		},
+		created() {
+			window.addEventListener("resize", this.onResize);
+		},
+		destroyed() {
+			window.removeEventListener("resize", this.onResize);
+		},
+		mounted(){
+			this.onResize();
 		}
 }
 </script>
@@ -220,13 +250,17 @@ export default{
     z-index: 100;
 }
 .right{
-	margin: 60px 0 0 auto;
+	margin: 0 0 0 auto;
 	width: fit-content;
+}
+.sort-margin{
+	margin-top: 60px;
 }
 .text{
 	display: inline-block;
 	width: 100px;
 	font-weight: bold;
+	line-height: 47px;
 }
 ul {
     list-style: none;
@@ -254,5 +288,60 @@ input[type=checkbox]:checked + label {
 } 
 .small-button{
 	margin-top: 15px;
+}
+.filter-show, .filter-hide{
+	display: none;	
+}
+.icon-pos{
+	margin-bottom: auto;
+	margin-top: 0;
+}
+@media(max-width: 767px){
+	.filter-show, .filter-hide{
+		display: block;		
+		background-size: contain;
+		background-position: center;
+		float: left;
+		width: 36px;
+		height: 36px;	
+	}
+	.filter-show{
+		background: url("../assets/images/filter-icon.png") no-repeat;		
+	}
+	.filter-hide, .filter-show:hover{
+		background: url("../assets/images/filter-icon-hover.png") no-repeat;		
+	}
+	.select-pos{
+		float: right;
+	}
+	.text{
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	.sidebar{
+		position: relative;
+		margin-top: 15px;
+		background-color: @light_text;
+		padding: 15px;
+	}
+	.icon-pos{
+		float: left
+	}
+}
+@media(max-width: 600px){
+	.text, .select-pos{
+		display: block;
+	}
+	.text{
+		margin-left: auto;
+		margin-right: 0;	
+	}
+	.icon-pos{
+		height: 94px;
+	}
+	.filter-hide,.filter-show{
+		height: 100%;	
+		background-position: bottom;		
+	}
 }
 </style>

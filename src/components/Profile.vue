@@ -35,10 +35,10 @@
 									<td>ivan45364@gmail.com</td>
 								</tr>
 							</table>
-							<router-link to="/change_password" class="bordered-button brdr-btn-main-color">
+							<router-link to="/change_password" class="button brdr-btn-main-color">
 								Изменить пароль
 							</router-link>
-							<router-link to="/edit_profile" class="bordered-button brdr-btn-main-color">
+							<router-link to="/edit_profile" class="button brdr-btn-main-color">
 								Изменить профиль
 							</router-link>
 						</div>
@@ -72,26 +72,15 @@
 @import '../assets/styles/index.less';
 .info-block{
 	background-color: @light_text;
-	width: 37%;
+	width: 430px;
 	padding: 30px;
 	margin: 0 auto;
 	text-align: center;
 }
-.bordered-button{
-	width: 250px;
-	padding: 14px 0;
-	text-align: center;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	max-width: 250px;
-	display: inline-block;	
-
-	margin-bottom: 30px;
-}
-.brdr-btn-main-color{
-	border: 1px solid @main_color;
-	color: @main_color;	
+.button{
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 tr, th{
 	padding: 10px 30px;
@@ -101,5 +90,17 @@ table{
 	text-align: left;
 	margin-left: auto;
 	margin-right: auto;
+}
+@media(max-width: 484px){
+	td, th{
+		display: block;
+		padding: 0;
+	}
+	td{
+		padding-bottom: 15px;
+	}
+	.info-block{		
+		width: 90%;		
+	}
 }
 </style>

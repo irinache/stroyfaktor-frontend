@@ -27,7 +27,7 @@
 											<router-link to="/">Главная</router-link>
 										</li>
 										<li> 
-											<transition name="bounce"><a href="#about_us">О нас</a></transition>
+											<transition name="bounce"><a href="/#about_us">О нас</a></transition>
 										</li>
 										<li>									
 											<div class="dropdown">
@@ -52,7 +52,7 @@
 											<router-link to="/testimonials">Отзывы</router-link>
 										</li>
 										<li>
-											<a href="#contacts">Контакты</a>
+											<a href="/#contacts">Контакты</a>
 										</li>
 										<li>
 											<router-link to="/login" class="login"><span class="login-text">Войти</span></router-link>

@@ -16,15 +16,17 @@
 							<form action="" autocomplete="off">
 								<div class="row">
 									<div class="col-md-12">
-										<input type="password" name="old_password" v-model="old_password" placeholder="Старый пароль" >
-										<input type="password" name="new_password" v-model="new_password" placeholder="Новый пароль">
-										<input type="password" name="new_password_confirm" v-model="new_password_confirm" placeholder="Подтвердите пароль">						
+										<input type="password" name="old_password" v-model="old_password"  class="light-input" placeholder="Старый пароль" >
+										<input type="password" name="new_password" v-model="new_password"  class="light-input" placeholder="Новый пароль">
+										<input type="password" name="new_password_confirm" v-model="new_password_confirm"   class="light-input" placeholder="Подтвердите пароль">						
 									</div>									
 								</div>	
-								<router-link to="/profile" class="bordered-button brdr-btn-main-color">
-									Отмена
-								</router-link>
-								<input type="submit" value="Сохранить" class="solid-button">
+								<div class="clearfix">
+									<input type="submit" value="Сохранить" class="button solid-button float-right">
+									<router-link to="/profile" class="button brdr-btn-main-color float-left">
+										Отмена
+									</router-link>									
+								</div>								
 							</form> 							
 						</div>
 					</div>
@@ -62,53 +64,27 @@
 	width: 70%;
 	padding: 30px;
 	margin: 0 auto;
-	padding-bottom: 150px;
+	padding-bottom: 50px;
 	text-align: center;
-}
-.bordered-button{
-	width: 250px;
-	padding: 14px 0;
-	text-align: center;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	max-width: 250px;
-	display: inline-block;	
-
-	margin-bottom: 30px;
-	float: left;
-	margin-top: 30px;
-}
-.brdr-btn-main-color{
-	border: 1px solid @main_color;
-	color: @main_color;	
-}
-.solid-button{
-	width: 250px;
-	padding: 14px 0;	
-	background-color: @main_color;
-	text-align: center;
-	color: @light_text;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 20px;
-	margin-bottom: 15px;
-	display: inline-block;
-	border: none;
-	float: right;
-
-	margin-top: 30px;
 }
 input{
-	margin-bottom: 20px;
-	padding: 13px 17px;
 	width: 100%;
-	background-color: transparent;
-	border: 1px solid @dark-bg;
-	color: @dark-bg;
 }
-input:focus{
-  outline: none;
-  background-color: rgba(255,255,255, 0.1);
+.button{
+	margin-top: 15px;
+}
+@media(max-width: 991px){
+	.button{		
+		width: 100%;	
+		margin-top: 0;	
+	}
+	.solid-button{
+		margin-top: 15px;
+	}
+}
+@media(max-width: 484px){
+	.info-block{		
+		width: 90%;		
+	}
 }
 </style>
