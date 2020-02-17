@@ -11,7 +11,7 @@
 					</div>
 				</div>	
 				<div class="row">
-					<div class="col-md-8 block-margin">
+					<div class="col-lg-8 col-md-6 block-margin">
 						<div class="bg-block">
 							<form autocomplete="off">
 								<h4>
@@ -40,14 +40,14 @@
 								</h4>
 								<textarea class="light-input" name="comment" v-model="comment" placeholder="Напишите комментарий">								
 								</textarea>
-								<div class="text-right clearfix">
-									<router-link to="/cart" class="button brdr-btn-main-color float-left">Назад</router-link>
+								<div class="text-right clearfix">									
 									<div class="button solid-button float-right">Подтвердить заказ</div>
+									<router-link to="/cart" class="button brdr-btn-main-color float-left">Назад</router-link>
 								</div>							
 							</form>
 						</div>												
 					</div>
-					<div class="col-md-4 block-margin">
+					<div class="col-lg-4 col-md-6  block-margin">
 						<div class="bg-block">
 							<h4>
 								Заказ:
@@ -168,12 +168,13 @@ textarea{
 .item{
 	vertical-align: top;
 	margin-bottom: 30px;
+	border-bottom: 1px solid @medium-bg;
 	.text{
 		vertical-align: top;
 	}
 	img{
 		width: 90px;
-		height: 90px;
+		height: width;
 		display: inline-block;
 		margin-right: 20px;
 		vertical-align: top;
@@ -196,6 +197,39 @@ textarea{
 	font-size: 24px;
 	display: inline-block;
 	float: right;
-	line-height: 29px;
+	line-height: 29px;	
 }
+.price{
+	margin-bottom: 20px;
+}
+@media(max-width: 1199px){
+  .item{
+	img{		
+		width: 70px;		
+		margin-bottom: 15px;
+	}
+}
+}
+@media(max-width: 992px){
+  .item{	
+	img{
+		width: 70px;
+		margin-bottom: 15px;
+		margin-top: 0;
+		margin-bottom: auto;
+	}
+}
+.solid-button{
+	margin-bottom: 20px;
+}
+}
+@media(max-width: 359px){
+  .item{
+	img{		
+		width: 70px;		
+		margin-bottom: 15px;
+	}
+}
+}
+
 </style>

@@ -23,9 +23,14 @@
 						<div v-show="!empty">
 							<div class="item" v-for="item in items" v-bind:key="item.id">
 								<div class="align-middle d-inline-block info-container">
-									<img src="../assets/images/card-img.png" alt="">
+									<div class="img">
+										<h4 v-show="h4OnTop" class="item-name">
+											Металлочерепица Арад
+										</h4>
+										<img src="../assets/images/card-img.png" alt="">
+									</div>									
 									<div class="main-info">
-										<h4 class="item-name">
+										<h4 v-show="!h4OnTop" class="item-name">
 											Металлочерепица Арад
 										</h4>
 										<div class="info-time">
@@ -35,7 +40,7 @@
 											Цена: 226  грн
 										</div>									
 									</div>								
-									<div class="counter align-top d-inline-block">
+									<div class="counter">
 										<div class="text">
 											Количество кв. м.
 										</div>
@@ -47,7 +52,7 @@
 											+
 										</div>									
 									</div>
-									<div class="sum align-top d-inline-block">
+									<div class="sum">
 										<div class="text">
 											Сумма
 										</div>
@@ -55,19 +60,18 @@
 											{{item.sum}} грн
 										</h4>									
 									</div>
-								</div>
-								<div class="d-inline-block align-middle text-right cross-container">	
-									<div class="cross" @click="deleteItem(item)">
-										
+									<div class="cross-container">
+										<div class="cross" @click="deleteItem(item)">										
+										</div>
 									</div>									
 								</div>
 							</div>
-							<div class="buttons">
-								<router-link to="/item_list" class="button brdr-btn-main-color d-inline-block">
-									Продолжить покупки
-								</router-link>
-								<router-link to="/checkout" class="button solid-button d-inline-block">
+							<div class="buttons clearfix">								
+								<router-link to="/checkout" class="button solid-button float-right">
 									Оформить заказ
+								</router-link>
+								<router-link to="/item_list" class="button brdr-btn-main-color float-left">
+									Продолжить покупки
 								</router-link>
 							</div>
 						</div>
@@ -111,10 +115,25 @@
 					price: 229,
 					sum: 226
 				}
-				]								
+				],
+				h4OnTop: false,							
 			}	
 		},
+		created() {
+			window.addEventListener("resize", this.onResize);
+		},
+		destroyed() {
+			window.removeEventListener("resize", this.onResize);
+		},
 		methods:{
+			onResize(){
+				if(document.documentElement.clientWidth <= 471) {
+					this.h4OnTop = true;
+				}
+				else{
+					this.h4OnTop = false;
+				}
+			},
 			increaseCount: function(i){
 				i.count++;
 				i.sum = i.count*i.price;
@@ -130,13 +149,15 @@
 				this.items.splice(removeIndex, 1);
 			}
 		},
+		mounted(){
+			this.onResize();
+		},
 	}
 </script>
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
 .text{
-	font-size: 18px;
 	margin-bottom: 10px;
 }
 .item{
@@ -144,18 +165,21 @@
 	background-color: @light_text;
 	margin-bottom: 30px;
 }
-.button{
-	margin-left: 30px;
+.img{
+	width: 12%;
+	display: inline-block;
+	vertical-align: top;
 }
 img{
 	width: 100px;
-	height: 100px;
+	height: width;
 	margin-right: 25px;
 	vertical-align: top;
 }
 .main-info{
 	display: inline-block;
 	vertical-align: top;
+	width: 38%;
 }
 h4{
 	margin-top: 0;
@@ -166,8 +190,8 @@ h4{
 }
 .counter{
 	display: inline-block;
-	margin-left: 100px;
-	vertical-align: middle;
+	width: 25%;
+	vertical-align: top;
 }
 .minus, .plus, .count{
 	padding: 0 25px;
@@ -202,19 +226,109 @@ input[type=number] {
   margin-bottom: 0;
 }
 .sum{
-	margin-left: 100px;
+	width: 20%;
+	vertical-align: top;
+	display: inline-block;
 }
-.cross{
-	margin-left: auto;
-	margin-right: 0;
-}
+
 .cross-container{
-	width: 10%;
+	position: absolute;	
+	top: calc(50% - 27px);
+	right: 20px;
 }
 .info-container{
-	width: 90%;
+	width: 100%;
+	position: relative;
 }
 .buttons{
 	text-align: right;
+}
+@media(max-width: 1199px){
+	.img{
+		width: 15%;
+	}
+	.main-info{
+		width: 33%;
+	}
+	.minus, .plus, .count{
+		padding: 0 20px;
+		line-height: 45px;		
+	}
+	.sum{
+		margin-left: 20px;
+	}
+}
+@media(max-width: 991px){
+	.img{
+		width: 100px;
+	}
+	.main-info{
+		margin-left: 20px;
+		width: calc(100% - 120px);
+	}
+	.counter{
+		width: 50%;
+		margin-top: 30px;
+		vertical-align: bottom;
+	}
+	h4{
+		margin-bottom: 0;
+	}
+	.sum{
+		margin-top: 30px;
+		margin-left: 0;
+		text-align: right;
+		vertical-align: bottom;
+		width: 35%;		
+	}
+	.price{
+		margin: 0;
+	}
+	.info-time{
+		margin-top: 10px;
+	}
+	.cross-container{	
+		right: 0;		
+	}
+}
+@media(max-width: 767px){
+	.solid-button{
+		margin-bottom: 20px;
+	}
+}
+
+
+@media(max-width: 471px){
+	.item-name{
+		width: 80%;
+		text-align: center;
+		margin: 0 auto 
+	}
+	.img{
+		text-align: center;		
+		width: 100%;
+	}
+	img{
+		margin-right: 0;
+		margin-top: 15px;
+		width: 150px;
+	}
+	.main-info{
+		text-align: center;
+		margin-left: 0;
+		width: 100%;
+		margin-top: 20px;
+	}
+	.counter,.sum{
+		text-align: center;
+		margin: 30px 0;
+		width: 100%;
+		display: block;
+	}
+	.cross-container{
+		position: absolute;	
+		top: -15px;
+		right: -15px;	
+	}
 }
 </style>

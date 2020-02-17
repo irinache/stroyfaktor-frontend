@@ -129,10 +129,12 @@ a:hover{
 	background-color: @main_color;
 	color: @light_text;		
 	border: none;
+	border: 1px solid @main_color;
 }
 .solid-button:hover{
 	transition: 0.4s;
 	background-color: @hover_main_color;
+	border: 1px solid @hover_main_color;
 	color: @light_text;
 }
 .bordered-button{
@@ -198,6 +200,9 @@ input,textarea{
 	padding: 13px 17px;	
 	background-color: transparent;
 }
+input,textarea:focus{
+	outline: 0;
+}
 textarea{
 	resize: none;
 }
@@ -221,7 +226,7 @@ textarea{
 	cursor: pointer;
 	width: 55px;
 	height: 55px;
-	background: url("../images/cross.png");	
+	background: url("../images/cross.png") no-repeat;	
 	background-size: contain;	
 }
 .cross:hover{
