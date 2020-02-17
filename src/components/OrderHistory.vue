@@ -223,8 +223,7 @@ td{
 	vertical-align: top;
 	padding-right: 40px;
 }
-.table-text{
-	font-size: 18px;
+.table-text{	
 	margin-bottom: 15px;
 }
 @media(max-width: 767px){

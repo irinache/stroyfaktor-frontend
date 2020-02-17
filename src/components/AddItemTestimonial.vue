@@ -17,9 +17,9 @@
 								Ваша оценка:
 							</div>
 							<div class="rating">
-								stars
+								<star-rating v-model="rating" :show-rating="false"></star-rating>
 							</div>
-							<form>
+							<form>								
 								<textarea name="testimonial" v-model="testimonial" class="light-input" placeholder="Напишите ваш отзыв">						
 								</textarea>
 								<div class="clearfix">
@@ -49,6 +49,7 @@
 		},
 		data(){
 			return{
+				rating: 0,
 				testimonial: "",								
 			}	
 		}

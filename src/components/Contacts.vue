@@ -186,7 +186,7 @@ table{
 	padding: 15px 30px 15px 0;
 }
 .small-table>tr>td{
-	padding: 2px 20px 2px 0;
+	padding: 2px 10px 2px 0;
 }
 tr{
 	vertical-align: top;
