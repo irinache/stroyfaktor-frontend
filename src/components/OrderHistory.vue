@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="text-center" v-show="empty">
-							<div class="text">
+							<div>
 								Вы не совершали заказов.
 							</div>
 							<router-link to="/categories" class="solid-button">
@@ -23,7 +23,7 @@
 						<div v-show="!empty">
 							<div class="order" v-for="order in orders" v-bind:key="order.id">
 								<div class="clearfix">
-									<div class="text float-left">
+									<div class="text">
 										<b>Заказ #4578,</b> 2 сентября 2019 20:26
 									</div>	
 									<div class="status">
@@ -35,9 +35,9 @@
 										<img class="item-img align-top" src="../assets/images/card-img.png" alt="">
 										<div class="main-info align-top">
 											<h4>{{item.name}}</h4>
-											<div class="text">Цена: {{item.price}}  грн</div>
+											<div>Цена: {{item.price}}  грн</div>
 										</div>
-										<div class="count align-top text">
+										<div class="count align-top">
 											{{item.count}} кв.м
 										</div>
 										<div class="cost">
@@ -177,10 +177,9 @@
 	margin-bottom: 30px;
 }
 .text{
-	font-size: 18px;		
+	float: left;		
 }
-.status{
-	font-size: 18px;	
+.status{		
 	float: right;
 }
 .items{
@@ -196,8 +195,9 @@
 }
 .item-img{
 	width: 100px;
-	height: 100px;
+	height: width;
 	margin-right: 20px;
+	margin-top: 0;
 }
 h4{
 	margin-top: 0;
@@ -212,8 +212,7 @@ h4{
 	display: inline-block;
 	float: right;	
 }
-.sum{
-	font-size: 18px;
+.sum{	
 	font-weight: bold; 
 	text-align: right;
 }
@@ -227,5 +226,41 @@ td{
 .table-text{
 	font-size: 18px;
 	margin-bottom: 15px;
+}
+@media(max-width: 767px){
+	.count, .cost{
+		display: block;
+		text-align: left;
+		width: fit-content;
+		margin-left: 110px;
+		margin-right: auto;
+		float: none;
+	}
+	.item-img{
+		margin-bottom: 0;
+		width: 90px;
+	}
+	td{
+		display: block;
+	}
+}
+@media(max-width: 630px){
+	.text, .status{
+		float: none;		
+	}
+}
+@media(max-width: 400px){
+	.item-img{
+		width: 65px;
+		margin-right: 10px;		
+	}
+	.count, .cost{
+		display: block;
+		text-align: left;
+		width: fit-content;
+		margin-left: 75px;
+		margin-right: auto;
+		float: none;
+	}
 }
 </style>
