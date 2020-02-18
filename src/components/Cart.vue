@@ -47,7 +47,7 @@
 										<div class="minus" @click="decreaseCount(item)">
 											-
 										</div>
-										<input type="number" name="count" class="count" v-model.number="item.count" min="1">
+										<input type="number" name="count" class="count" @blur="calc(item)" onkeyup="this.value=this.value.replace(/^[0]+/,'')" v-model="item.count">
 										<div class="plus" @click="increaseCount(item)">
 											+
 										</div>									
@@ -122,6 +122,9 @@
 		created() {
 			window.addEventListener("resize", this.onResize);
 		},
+		updated() {
+			this.onResize();
+		},
 		destroyed() {
 			window.removeEventListener("resize", this.onResize);
 		},
@@ -147,6 +150,9 @@
 			deleteItem:function(i){
 				var removeIndex = this.items.map(function(i) { return i.id; }).indexOf(i.id);
 				this.items.splice(removeIndex, 1);
+			},
+			calc:function(i){
+				i.sum = i.count*i.price;
 			}
 		},
 		mounted(){

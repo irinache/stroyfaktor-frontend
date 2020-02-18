@@ -13,12 +13,29 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="info-block">
-							<form action="" autocomplete="off">
+							<form action="" autocomplete="off" @submit.prevent="submit">
 								<div class="row">
 									<div class="col-md-12">
+										<div class="err-field">
+											<div v-if="$v.old_password.$error">
+												<span class="error" v-if="!$v.old_password.required">Введите старый пароль. </span>
+											</div>
+										</div>
 										<input type="password" name="old_password" v-model="old_password"  class="light-input" placeholder="Старый пароль" >
+										<div class="err-field">
+											<div v-if="$v.new_password.$error">
+												<span class="error" v-if="!$v.new_password.required">Введите новый пароль. </span>
+												<span class="error" v-if="!$v.new_password.minLength">Пароль слишком короткий. </span>
+											</div>
+										</div>
 										<input type="password" name="new_password" v-model="new_password"  class="light-input" placeholder="Новый пароль">
-										<input type="password" name="new_password_confirm" v-model="new_password_confirm"   class="light-input" placeholder="Подтвердите пароль">						
+										<div class="err-field">
+											<div v-if="$v.new_password_confirm.$error">
+												<span class="error" v-if="!$v.new_password_confirm.required">Подтвердите новый пароль. </span>
+												<span class="error" v-if="!$v.new_password_confirm.sameAsPassword">Пароли не совпадают. </span>
+											</div>
+										</div>
+										<input type="password" name="new_password_confirm" v-model="new_password_confirm" class="light-input" placeholder="Подтвердите пароль">						
 									</div>									
 								</div>	
 								<div class="clearfix">
@@ -42,6 +59,8 @@
 <script>
 	import Header from "../components/Header.vue"
 	import Footer from "../components/Footer.vue"
+	import { required, minLength, sameAs } from 'vuelidate/lib/validators'
+
 	export default{
 		components: {	
 			Header,		
@@ -53,7 +72,33 @@
 				new_password: "",
 				new_password_confirm: "",							
 			}	
-		},		
+		},	
+		methods:{
+			submit() {      
+				this.$v.$touch()
+				if (this.$v.$invalid) {
+					this.submitStatus = 'ERROR'
+				} 
+				else {
+				// submit logic 
+				}
+			},
+	
+		},
+		validations: {
+			old_password: {
+				required,	
+			},
+			new_password: {
+				required,				
+				minLength: minLength(5),			
+			},
+			new_password_confirm: {
+				required,				
+				sameAsPassword: sameAs('new_password'),			
+			},
+						
+		}	
 	}
 </script>
 
@@ -71,7 +116,7 @@ input{
 	width: 100%;
 }
 .button{
-	margin-top: 15px;
+	margin-top: 30px;
 }
 @media(max-width: 991px){
 	.button{		

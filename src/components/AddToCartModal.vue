@@ -17,7 +17,7 @@
                 <div class="minus" @click="decreaseCount()">
                   -
                 </div>
-                <input type="number" name="count" class="count" v-model.number="item_count" min="1">
+                <input type="number" name="count" class="count" v-model.number="item_count" onkeyup="this.value=this.value.replace(/^[0]+/,'')">
                 <div class="plus" @click="increaseCount()">
                   +
                 </div>                  
@@ -114,7 +114,8 @@ input:focus{
   outline: none;
 }
 .button{
-  margin: 10px; 
+  margin: 10px;
+  margin-top: 30px; 
 }
 form{
 	text-align: center;

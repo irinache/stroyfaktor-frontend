@@ -13,16 +13,47 @@
 				<div class="row">
 					<div class="col-lg-8 col-md-6 block-margin">
 						<div class="bg-block">
-							<form autocomplete="off">
+							<form autocomplete="off" @submit.prevent="submit">
 								<h4>
 									Информация о получателе:
 								</h4>
+								<div class="err-field">
+									<div v-if="$v.name.$error">
+										<span class="error" v-if="!$v.name.required">Укажите имя. </span>
+										<span class="error" v-if="!$v.name.minLength">Имя слишком короткое. </span>
+										<span class="error" v-if="!$v.name.onlyLetters">Имя может содержать только буквы. </span>
+									</div>
+								</div>
 								<input type="text" class="light-input" name="name" v-model="name" placeholder="Имя">
+								<div class="err-field">
+									<div v-if="$v.secname.$error">
+										<span class="error" v-if="!$v.secname.required">Укажите отчество. </span>
+										<span class="error" v-if="!$v.secname.onlyLetters">Отчество может содержать только буквы. </span>
+									</div>
+								</div>
 								<input type="text" class="light-input" name="secname" v-model="secname"  placeholder="Отчество">
+								<div class="err-field">
+									<div v-if="$v.surname.$error">
+										<span class="error" v-if="!$v.surname.required">Укажите фамилию. </span>
+										<span class="error" v-if="!$v.surname.onlyLetters">Фамилия может содержать только буквы. </span>
+									</div>
+								</div>
 								<input type="text" class="light-input" name="surname" v-model="surname"  placeholder="Фамилия">
+								<div class="err-field">
+									<div v-if="$v.phone.$error">
+										<span class="error" v-if="!$v.phone.required">Укажите номер телефона. </span>
+										<span class="error" v-if="!$v.phone.mustBePhoneNum">Неправильный формат номера. </span>
+									</div>
+								</div>
 								<input type="text" class="light-input" name="phone" v-model="phone"  placeholder="Номер телефона">
+								<div class="err-field">
+									<div v-if="$v.email.$error">
+										<span class="error" v-if="!$v.email.required">Укажите электронную почту. </span>
+										<span class="error" v-if="!$v.email.email">Неправильный формат электронной почты. </span>
+									</div>
+								</div>
 								<input type="email" class="light-input" name="email" v-model="email"  placeholder="Email">
-								<h4>
+								<h4 class="h4margin">
 									Способ доставки:
 								</h4>
 								<CustomSelect :options="['Новая почта', 'Delivery', 'самовывоз']" :bordered="true" class="select-pos"/>
@@ -41,7 +72,7 @@
 								<textarea class="light-input" name="comment" v-model="comment" placeholder="Напишите комментарий">								
 								</textarea>
 								<div class="text-right clearfix">									
-									<div class="button solid-button float-right">Подтвердить заказ</div>
+									<input type="submit" value="Подтвердить заказ" class="button solid-button float-right">
 									<router-link to="/cart" class="button brdr-btn-main-color float-left">Назад</router-link>
 								</div>							
 							</form>
@@ -84,6 +115,11 @@
 	import Header from "../components/Header.vue"
 	import Footer from "../components/Footer.vue"
 	import CustomSelect from "../components/CustomSelect.vue";
+	import { required, minLength, helpers, email, sameAs } from 'vuelidate/lib/validators'
+	
+	const mustBePhoneNum = helpers.regex('mustBePhoneNum', /^(\+38)?0\d{3}\d{2}\d{2}\d{2}$/)
+	const onlyLetters = helpers.regex('onlyLetters', /^[a-zA-Zа-яА-ЯёЁ]*$/)
+
 	export default{
 		components: {	
 			Header,	
@@ -132,8 +168,51 @@
 				}
 				return sum;
 			}
-		}
-		
+		},
+		methods:{
+			submit() {      
+				this.$v.$touch()
+				if (this.$v.$invalid) {
+					this.submitStatus = 'ERROR'
+				} 
+				else {
+				// submit logic 
+				}
+			},
+	
+		},
+		validations: {
+			name: {
+				required,	
+				onlyLetters,	
+				minLength: minLength(3),		
+			},
+			secname: {
+				required,	
+				onlyLetters,			
+			},
+			surname: {
+				required,	
+				onlyLetters,			
+			},
+			phone: {
+				required,	
+				mustBePhoneNum,			
+			},
+			email: {
+				required,	
+				email,			
+			},
+			password: {
+				required,				
+				minLength: minLength(5),			
+			},
+			password_confirm: {
+				required,				
+				sameAsPassword: sameAs('password'),			
+			},
+						
+		}		
 	}
 </script>
 
@@ -155,11 +234,15 @@
 h4{
 	margin-bottom: 25px;
 }
+.h4margin{
+	margin-top: 25px;
+}
 input, textarea{
 	width: 100%;
 }
 textarea{
 	height: 134px;	
+	margin-bottom: 30px;
 }
 .select-pos{
 	width: 100%;

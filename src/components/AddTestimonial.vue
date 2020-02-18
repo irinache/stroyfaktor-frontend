@@ -22,11 +22,11 @@
 							<form>
 								<textarea name="testimonial" v-model="testimonial" class="light-input" placeholder="Напишите ваш отзыв">						
 								</textarea>
-								<div class="clearfix">
+								<div class="clearfix">									
+									<input type="submit" value="Отправить отзыв" class="button solid-button float-right">
 									<router-link to="/testimonials" class="button brdr-btn-main-color float-left">
 										Назад
 									</router-link>
-									<input type="submit" value="Отправить отзыв" class="button solid-button float-right">
 								</div>							
 							</form>
 						</div>						
@@ -79,6 +79,12 @@ textarea{
 @media(max-width: 767px){
 	.button{		
 		margin-bottom: 20px;
+	}
+}
+@media(max-width: 344px){
+	.test-block{		
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 }
 </style>

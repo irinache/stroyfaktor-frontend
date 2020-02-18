@@ -34,10 +34,10 @@
 										</div>
 									</div>								
 									<div class="d-block">
-										<div class="solid-button button button-margin">
+										<div class="solid-button button button-margin" @click.prevent="showAddedToCartModal">
 											Купить
 										</div>
-										<div class="button brdr-btn-main-color button-margin">
+										<div class="button brdr-btn-main-color button-margin"  @click.prevent="showModalCallMeBack">
 											Перезвоните мне
 										</div>
 									</div>
@@ -200,7 +200,13 @@
 				else{
 					this.h3OnTop = false;
 				}
-			}
+			},
+			showAddedToCartModal() {    			
+				this.$root.$emit('modal-atc-on', true);		        	
+			},
+			showModalCallMeBack() {    			
+				this.$root.$emit('modal-cmb-on', true);		        	
+			},
 		},
 		mounted(){
 			this.onResize();

@@ -11,9 +11,15 @@
           <div class="modal-text">
 						Оставьте свой номер телефона и представитель компании с вами свяжется.						
           </div>
-          <form action="" autocomplete="off">							
-							<input type="phone" name="phone" placeholder="Номер телефона" v-model="phone_num" class="light-input">								
-							<input type="submit" value="Отправить" class="button solid-button text-center">				
+          <form action="" autocomplete="off" @submit.prevent="submit">
+            <div class="err-field">
+              <div v-if="$v.phone_num.$error">
+                <span class="error" v-if="!$v.phone_num.required">Укажите номер телефона. </span> 
+                <span class="error" v-if="!$v.phone_num.mustBePhoneNum">Неправильный формат номера. </span> 
+              </div>
+            </div>  							
+						<input type="phone" name="phone" placeholder="Номер телефона" v-model.trim="$v.phone_num.$model" class="light-input">								
+						<input type="submit" value="Отправить" class="button solid-button text-center">				
 					</form>          
 				</div>
       </div>
@@ -22,8 +28,12 @@
 </template>
 
 <script>
+  import { required, helpers } from 'vuelidate/lib/validators'
+  
+  const mustBePhoneNum = helpers.regex('mustBePhoneNum', /^(\+38)?0\d{3}\d{2}\d{2}\d{2}$/)
+
 	export default{
-data() {
+  data() {
     return{
       showModal: false,
       phone_num: "",
@@ -32,10 +42,26 @@ data() {
   methods:{
     switchModalCallMeBackState: function(isShown) {         
       this.showModal = isShown; 
+      this.phone_num = "";
     },
+    submit() {      
+      this.$v.$touch()
+        if (this.$v.$invalid) {
+          this.submitStatus = 'ERROR'
+        } 
+        else {
+        // submit logic 
+        }
+      },
   },
   mounted(){
     this.$root.$on('modal-cmb-on', (isShown) => {this.switchModalCallMeBackState(isShown)});
+  },
+  validations: {
+    phone_num: {
+      required, 
+      mustBePhoneNum,     
+    },      
   }
 }
 </script>
@@ -43,6 +69,9 @@ data() {
 
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
+.button{
+  margin-top: 30px; 
+}
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -81,8 +110,7 @@ input{
 	width: 100%;
   border: none;
   margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+  margin-right: auto;  
   margin-bottom: 15px;
 }
 form{

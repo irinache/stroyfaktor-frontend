@@ -12,14 +12,57 @@
 							<h2 class="text-uppercase text-center">
 								Регистрация
 							</h2>
-							<form action="" autocomplete="off">							
-								<input type="text" name="name" v-model="name" placeholder="Имя" class="light-input">
-								<input type="text" name="secname" v-model="secname" placeholder="Отчество" class="light-input">
-								<input type="text" name="surname" v-model="surname" placeholder="Фамилия" class="light-input">
-								<input type="text" name="phone" v-model="phone" placeholder="Телефон" class="light-input">
-								<input type="email" name="email" v-model="email"  placeholder="Email" class="light-input">
-								<input type="password" name="password" v-model="password" placeholder="Пароль" class="light-input">
-								<input type="password" name="password_confirm" v-model="password_confirm" placeholder="Повторите пароль" class="light-input">		
+							<form action="" autocomplete="off" @submit.prevent="submit">		
+								<div class="err-field">
+									<div v-if="$v.name.$error">
+										<span class="error" v-if="!$v.name.required">Укажите имя. </span>
+										<span class="error" v-if="!$v.name.minLength">Имя слишком короткое. </span>
+										<span class="error" v-if="!$v.name.onlyLetters">Имя может содержать только буквы. </span>
+									</div>
+								</div>					
+								<input type="text" name="name" v-model.trim="$v.name.$model" placeholder="Имя" class="light-input">
+								<div class="err-field">
+									<div v-if="$v.secname.$error">
+										<span class="error" v-if="!$v.secname.required">Укажите отчество. </span>
+										<span class="error" v-if="!$v.secname.onlyLetters">Отчество может содержать только буквы. </span>
+									</div>
+								</div>	
+								<input type="text" name="secname" v-model.trim="$v.secname.$model" placeholder="Отчество" class="light-input">
+								<div class="err-field">
+									<div v-if="$v.surname.$error">
+										<span class="error" v-if="!$v.surname.required">Укажите фамилию. </span>
+										<span class="error" v-if="!$v.surname.onlyLetters">Фамилия может содержать только буквы. </span>
+									</div>
+								</div>	
+								<input type="text" name="surname" v-model.trim="$v.surname.$model" placeholder="Фамилия" class="light-input">
+								<div class="err-field">
+									<div v-if="$v.phone.$error">
+										<span class="error" v-if="!$v.phone.required">Укажите номер телефона. </span>
+										<span class="error" v-if="!$v.phone.mustBePhoneNum">Неправильный формат номера. </span>
+									</div>
+								</div>	
+								<input type="text" name="phone" v-model.trim="$v.phone.$model" placeholder="Телефон" class="light-input">
+								<div class="err-field">
+									<div v-if="$v.email.$error">
+										<span class="error" v-if="!$v.email.required">Укажите электронную почту. </span>
+										<span class="error" v-if="!$v.email.email">Неправильный формат электронной почты. </span>
+									</div>
+								</div>	
+								<input type="email" name="email" v-model.trim="$v.email.$model" placeholder="Email" class="light-input">
+								<div class="err-field">
+									<div v-if="$v.password.$error">
+										<span class="error" v-if="!$v.password.required">Укажите новый пароль. </span>
+										<span class="error" v-if="!$v.password.minLength">Пароль слишком короткий. </span>
+									</div>
+								</div>	
+								<input type="password" name="password" v-model.trim="$v.password.$model" placeholder="Пароль" class="light-input">
+								<div class="err-field">
+									<div v-if="$v.password_confirm.$error">
+										<span class="error" v-if="!$v.password_confirm.required">Повторите пароль. </span>
+										<span class="error" v-if="!$v.password_confirm.sameAsPassword">Пароль не совпадает. </span>
+									</div>
+								</div>	
+								<input type="password" name="password_confirm" v-model.trim="$v.password_confirm.$model" placeholder="Повторите пароль" class="light-input">		
 								<input type="submit" value="Зарегистрироваться" class="button solid-button">				
 							</form>
 							<div class="center">
@@ -37,6 +80,11 @@
 <script>
 	import Header from "../components/Header.vue"
 	import Footer from "../components/Footer.vue"
+	import { required, minLength, helpers, email, sameAs } from 'vuelidate/lib/validators'
+	
+	const mustBePhoneNum = helpers.regex('mustBePhoneNum', /^(\+38)?0\d{3}\d{2}\d{2}\d{2}$/)
+	const onlyLetters = helpers.regex('onlyLetters', /^[a-zA-Zа-яА-ЯёЁ]*$/)
+
 	export default{
 		components: {	
 			Header,					
@@ -52,7 +100,51 @@
 				password: "",
 				password_confirm: "",										
 			}	
-		},		
+		},	
+		methods:{
+			submit() {      
+				this.$v.$touch()
+				if (this.$v.$invalid) {
+					this.submitStatus = 'ERROR'
+				} 
+				else {
+				// submit logic 
+				}
+			},
+	
+		},
+		validations: {
+			name: {
+				required,	
+				onlyLetters,	
+				minLength: minLength(3),		
+			},
+			secname: {
+				required,	
+				onlyLetters,			
+			},
+			surname: {
+				required,	
+				onlyLetters,			
+			},
+			phone: {
+				required,	
+				mustBePhoneNum,			
+			},
+			email: {
+				required,	
+				email,			
+			},
+			password: {
+				required,				
+				minLength: minLength(5),			
+			},
+			password_confirm: {
+				required,				
+				sameAsPassword: sameAs('password'),			
+			},
+						
+		}	
 	}
 </script>
 

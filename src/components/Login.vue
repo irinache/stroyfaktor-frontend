@@ -12,10 +12,22 @@
 							<h2 class="text-uppercase text-center">
 								Вход
 							</h2>
-							<form action="" autocomplete="off">							
-								<input type="email" name="email" v-model="email" placeholder="Email" class="light-input">
+							<form action="" autocomplete="off" @submit.prevent="submit">	
+								<div class="err-field">
+									<div v-if="$v.email.$error">
+										<span class="error" v-if="!$v.email.required">Укажите вашу электронную почту. </span>	
+										<span class="error" v-if="!$v.email.email">Неправильный формат электронной почты. </span>
+									</div>
+								</div>						
+								<input type="text" name="email" v-model.trim="$v.email.$model" placeholder="Email" class="light-input">
 								<router-link to="/forgot-password" class="link d-block">Забыли пароль?</router-link>
-								<input type="password" name="password" v-model="password" placeholder="Пароль" class="light-input">		
+								<div class="err-field">
+									<div v-if="$v.password.$error">
+										<span class="error" v-if="!$v.password.required">Укажите ваш пароль. </span>	
+										<span class="error" v-if="!$v.password.minLength">Пароль слишком короткий. </span>
+									</div>
+								</div>
+								<input type="password" name="password" v-model.trim="$v.password.$model" placeholder="Пароль" class="light-input">		
 								<input type="submit" value="Войти" class="button solid-button">				
 							</form>
 							<div class="center">
@@ -33,6 +45,9 @@
 <script>
 	import Header from "../components/Header.vue"
 	import Footer from "../components/Footer.vue"
+	import { required, email, minLength } from 'vuelidate/lib/validators'	
+
+
 	export default{
 		components: {	
 			Header,					
@@ -42,8 +57,31 @@
 			return{
 				email: "",	
 				password: "",
+				submitStatus: null,
 			}
-		}
+		},
+		methods:{
+			submit() {      
+				this.$v.$touch()
+				if (this.$v.$invalid) {
+					this.submitStatus = 'ERROR'
+				} 
+				else {
+				// submit logic 
+				}
+			},
+	
+		},
+		validations: {
+			email: {
+				required,
+				email,							
+			},
+			password: {
+				required,	
+				minLength: minLength(5),			
+			},	
+		}		
 	}
 </script>
 
@@ -75,5 +113,8 @@ section{
 	.image{
 		display: none;
 	}
+}
+.link{
+	margin-bottom: -22px;
 }
 </style>
