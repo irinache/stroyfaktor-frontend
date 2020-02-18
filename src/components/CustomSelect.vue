@@ -6,7 +6,7 @@
         class="item" 
         v-for="(option, i) of options"
         :key="i"
-        @click="selected=option; open=false; $emit('input', option)"
+        @click="selected=option; open=false; $root.$emit(select_name, option)"
       >{{ option }}</div>
     </div>
   </div>
@@ -24,16 +24,18 @@ export default {
       type: Number,
       required: false,
       default: 0
-    }
+    },
+    select_name: String,
+    placeholder: String,
   },
   data() {
     return {
-      selected: this.options.length > 0 ? this.options[0] : null,
-      open: false
+      selected: this.options.length > 0 ? this.placeholder : null,
+      open: false,
     };
   },
   mounted() {
-    this.$emit("input", this.selected);
+    this.$root.$emit(this.select_name, this.selected);
   }
 };
 </script>

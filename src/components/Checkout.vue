@@ -56,21 +56,46 @@
 								<h4 class="h4margin">
 									Способ доставки:
 								</h4>
-								<CustomSelect :options="['Новая почта', 'Delivery', 'самовывоз']" :bordered="true" class="select-pos"/>
+								<div class="err-field">
+									<div v-if="$v.delivery_method.$error">
+										<span class="error" v-if="!$v.delivery_method.required">Укажите способ доставки. </span>
+									</div>
+								</div>
+								<CustomSelect :options="['Новая почта', 'Delivery', 'самовывоз']" :bordered="true" select_name="delivery_method" class="select-pos" placeholder="Выберите способ доставки"/>								
 								<div v-show="nova_poshta">
-									<CustomSelect :options="['В отделении', 'Адресная доставка']" :bordered="true" class="select-pos"/>
-									<CustomSelect :options="['Днепр', 'Киев', 'самовывоз']" :bordered="true" class="select-pos" placeholder="Выберите город"/>
-									<CustomSelect :options="['Отделение №1', 'Отделение №2', 'Отделение №3']" :bordered="true" class="select-pos" placeholder="Выберите город"/>
+									<div class="err-field">
+										<div v-if="$v.delivery_type.$error">
+											<span class="error" v-if="!$v.delivery_type.required">Укажите тип доставки. </span>
+										</div>
+									</div>
+									<CustomSelect :options="['В отделении', 'Адресная доставка']" :bordered="true" select_name="delivery_type" class="select-pos" placeholder="Выберите тип доставки"/>
+									<div class="err-field">
+										<div v-if="$v.city.$error">
+											<span class="error" v-if="!$v.city.required">Укажите город доставки. </span>
+										</div>
+									</div>
+									<CustomSelect :options="['Днепр', 'Киев', 'Львов']" :bordered="true" select_name="city" class="select-pos" placeholder="Выберите город" />
+									<div class="err-field">
+										<div v-if="$v.office_num.$error">
+											<span class="error" v-if="!$v.office_num.required">Укажите город доставки. </span>
+										</div>
+									</div>
+									<CustomSelect :options="['Отделение №1', 'Отделение №2', 'Отделение №3']" :bordered="true" select_name="office_num" class="select-pos" placeholder="Выберите отделение"/>
 								</div>							
-								<h4>
+								<h4  class="h4margin">
 									Способ оплаты:
 								</h4>
-								<CustomSelect :options="['На карту', 'Наложенный платеж']" :bordered="true" class="select-pos"/>
-								<h4>
+								<div class="err-field">
+									<div v-if="$v.payment_method.$error">
+										<span class="error" v-if="!$v.payment_method.required">Укажите город доставки. </span>
+									</div>
+								</div>
+								<CustomSelect :options="['На карту', 'Наложенный платеж']" :bordered="true" select_name="payment_method" class="select-pos" placeholder="Выберите способ оплаты" />
+								<h4  class="h4margin">
 									Комментарий:
 								</h4>
 								<textarea class="light-input" name="comment" v-model="comment" placeholder="Напишите комментарий">								
-								</textarea>
+								</textarea>								
 								<div class="text-right clearfix">									
 									<input type="submit" value="Подтвердить заказ" class="button solid-button float-right">
 									<router-link to="/cart" class="button brdr-btn-main-color float-left">Назад</router-link>
@@ -134,10 +159,12 @@
 				surname: "",
 				phone: "",
 				email: "",
-
-
+				delivery_method: "",
+				delivery_type: "",
+				city: "",
+				office_num: "",
+				payment_method: "",
 				comment: "",
-
 				items: [
 				{
 					id: 1,
@@ -160,6 +187,24 @@
 				]						
 			}	
 		},
+		mounted(){
+			this.$root.$on("delivery_method", (p) => {				
+				this.delivery_method = p				
+			});
+			this.$root.$on("delivery_type", (p) => {				
+				this.delivery_type = p				
+			});
+			this.$root.$on("city", (p) => {				
+				this.city = p				
+			});
+			this.$root.$on("office_num", (p) => {				
+				this.office_num = p				
+			});
+			this.$root.$on("payment_method", (p) => {				
+				this.payment_method = p				
+			});		
+
+		},
 		computed:{
 			totalSum: function(){
 				var sum = 0;
@@ -172,12 +217,19 @@
 		methods:{
 			submit() {      
 				this.$v.$touch()
+				//if(this.delivery_method.length == 0){
+					//this.delivery_method_err = true 
+				//}
 				if (this.$v.$invalid) {
 					this.submitStatus = 'ERROR'
 				} 
 				else {
 				// submit logic 
 				}
+
+			},
+			setPost(p){
+				this.post = p;
 			},
 	
 		},
@@ -211,7 +263,21 @@
 				required,				
 				sameAsPassword: sameAs('password'),			
 			},
-						
+			delivery_method: {
+				required
+			},
+			delivery_type: {
+				required
+			},
+			city: {
+				required
+			},
+			office_num: {
+				required
+			},
+			payment_method: {
+				required
+			},						
 		}		
 	}
 </script>
@@ -231,11 +297,9 @@
 	padding: 30px;
 	padding-bottom: 70px;
 }
-h4{
-	margin-bottom: 25px;
-}
 .h4margin{
 	margin-top: 25px;
+	margin-bottom: 0;
 }
 input, textarea{
 	width: 100%;
@@ -243,10 +307,11 @@ input, textarea{
 textarea{
 	height: 134px;	
 	margin-bottom: 30px;
+	margin-top: 25px;
 }
 .select-pos{
 	width: 100%;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 .item{
 	vertical-align: top;
