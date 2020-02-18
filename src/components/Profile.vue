@@ -41,6 +41,9 @@
 							<router-link to="/edit_profile" class="button brdr-btn-main-color">
 								Изменить профиль
 							</router-link>
+							<div class="link text-center">
+								Выйти из профиля
+							</div>
 						</div>
 					</div>
 				</div>

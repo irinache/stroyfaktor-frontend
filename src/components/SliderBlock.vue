@@ -54,8 +54,17 @@
 										<li>
 											<a href="/#contacts">Контакты</a>
 										</li>
-										<li>
-											<router-link to="/login" class="login"><span class="login-text">Войти</span></router-link>
+										<li v-show="!is_logged_in">
+											<router-link to="/login" class="login icon"><span class="login-text">Войти</span></router-link>
+										</li>	
+										<li v-show="is_logged_in">											
+											<router-link v-show="is_logged_in" to="/profile" class="profile icon"><span class="login-text">Профиль</span></router-link>
+										</li>	
+										<li v-show="is_logged_in">											
+											<router-link v-show="is_logged_in" to="/cart" class="cart icon"><span class="login-text">Корзина</span></router-link>
+										</li>
+										<li v-show="is_logged_in">											
+											<router-link v-show="is_logged_in" to="/order_history" class="orders icon"><span class="login-text">История заказов</span></router-link>
 										</li>									
 									</ul>
 																	
@@ -103,6 +112,7 @@
 				playing: true,
 				slideInterval: {},
 				show: false,
+				is_logged_in: true,
 			}			
 		},
 		components:{
@@ -189,19 +199,42 @@ li {
 	position: relative;
 	z-index: 20;
 }
-.login{
+.icon{
 	display: inline-block;
-	background: url("../assets/images/login_icon.png") no-repeat;
-	background-size: contain;
 	width: 36px;
 	height: 36px;
 	vertical-align: middle;
+	transition: 0.4s;
+}
+.login{	
+	background: url("../assets/images/login_icon.png") no-repeat;
+}
+.profile{	
+	background: url("../assets/images/profile-icon.png") no-repeat;		
+}
+.cart{	
+	background: url("../assets/images/cart-icon.png") no-repeat;		
+}
+.orders{	
+	background: url("../assets/images/orders-icon.png") no-repeat;		
+}
+.orders:hover{
 	transition: 0.4s;	
+	background: url("../assets/images/orders-icon-hover.png") no-repeat;	
+}
+.cart:hover{
+	transition: 0.4s;	
+	background: url("../assets/images/cart-icon-hover.png") no-repeat;	
 }
 .login:hover{
 	transition: 0.4s;	
 	background: url("../assets/images/login_icon_hover.png") no-repeat;	
 }
+.profile:hover{
+	transition: 0.4s;	
+	background: url("../assets/images/profile-icon-hover.png") no-repeat;	
+}
+
 .login-text{
 		display: none;
 	}
@@ -385,6 +418,16 @@ a:hover{
 	.slider-nav{
 		margin-top: 80px;
 	}
+	header{
+		display: none;
+	}
+	.solid-header{
+		display: block;
+		z-index: 10;
+	}
+	.transparent-header{
+		display: none;
+	}
 }
 @media(max-width: 767px){
 	.solid-field{
@@ -397,16 +440,7 @@ a:hover{
 	.blackout{
 		background-color: rgba(0, 0, 0, 0.6);
 	}
-	header{
-		isplay: none;
-	}
-	.solid-header{
-		display: block;
-		z-index: 10;
-	}
-	.transparent-header{
-		display: none;
-	}
+	
 	h4{
 		margin-top: 100px;
 		font-size: 20px;
