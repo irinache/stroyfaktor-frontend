@@ -179,7 +179,6 @@ header{
 	transition: 0.4s;	
 	background: url("../assets/images/profile-icon-hover.png") no-repeat;	
 }
-
 .drop-btn { 
   padding: 15px 0;
   transition: 0.4s;	
@@ -215,7 +214,6 @@ header{
   text-decoration: none;
   display: block;
   transition: 0.4s;	
-
 }
 .dropdown-content a:hover {
 	transition: 0.4s;	
@@ -244,8 +242,7 @@ header{
 	background-size: contain;
 	background-position: center;
 	width: 36px;
-	height: 50px;
-	
+	height: 50px;	
 }
 .menu:hover, .clear:hover{
 	background: url("../assets/images/menu-icon-hover.png") no-repeat;

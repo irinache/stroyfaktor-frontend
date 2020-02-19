@@ -278,7 +278,7 @@ li {
 	z-index: 3;
 }
 .slide:nth-of-type(1){
-	background: url(../assets/images/slide1.png) no-repeat;
+	background: url(../assets/images/slide1.jpg) no-repeat;
 	background-size: cover;	
 	background-color: rgba(0,0,0, 30%);
 }

@@ -78,17 +78,17 @@
 <style lang="less" scoped>
 @import '../assets/styles/index.less';
 .pic-1{
-	background: url(../assets/images/about-pic-1.png) no-repeat;
+	background: url(../assets/images/about-pic-1.jpg) no-repeat;
 	background-size: cover;	
 	//background-position: right;
 }
 .pic-2{
-	background: url(../assets/images/about-pic-2.png) no-repeat;
+	background: url(../assets/images/about-pic-2.jpg) no-repeat;
 	background-size: cover;
 	//background-position: right;	
 }
 .pic-3{
-	background: url(../assets/images/about-pic-3.png) no-repeat;
+	background: url(../assets/images/about-pic-3.jpg) no-repeat;
 	background-size: cover;	
 	//background-position: right;
 }

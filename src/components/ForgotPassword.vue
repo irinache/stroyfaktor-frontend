@@ -186,7 +186,7 @@ form{
 	margin-right: auto;
 }
 .image{
-	background: url("../assets/images/forgot-password-img.png");
+	background: url("../assets/images/forgot-password-img.jpg");
 	position: absolute;
 	width: 45%;
 	height:100%;

@@ -159,7 +159,7 @@ input{
 	margin-right: auto;
 }	
 .image{
-	background: url("../assets/images/registration.png");
+	background: url("../assets/images/registration.jpg");
 	position: absolute;
 	width: 45%;
 	height:100%;

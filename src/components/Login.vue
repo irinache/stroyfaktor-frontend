@@ -96,7 +96,7 @@ input{
 	margin-right: auto;
 }
 .image{
-	background: url("../assets/images/login-img.png");
+	background: url("../assets/images/login-img.jpg");
 	background-size: cover;
 	position: absolute;
 	width: 45%;

@@ -29,7 +29,7 @@
 							<div class="text">
 								Сортировка
 							</div>
-							<CustomSelect :options="['по порядку', 'по росту цены', 'по снижению цены']" :bordered="false" class="select-pos"/>
+							<CustomSelect :options="['по порядку', 'по росту цены', 'по снижению цены']" :bordered="false" placeholder="по порядку" class="select-pos"/>
 						</div>					
 					</div>		
 				</div>	
