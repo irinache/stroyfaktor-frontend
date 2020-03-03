@@ -5,15 +5,8 @@ import Categories from './components/Categories.vue'
 import ItemList from './components/ItemList.vue'
 import Item from './components/Item.vue'
 import AddItemTestimonial from './components/AddItemTestimonial.vue'
-import Login from './components/Login.vue'
-import Registration from './components/Registration.vue'
-import ForgotPassword from './components/ForgotPassword.vue'
 import Cart from './components/Cart.vue'
 import Checkout from './components/Checkout.vue'
-import Profile from './components/Profile.vue'
-import ChangePassword from './components/ChangePassword.vue'
-import EditProfile from './components/EditProfile.vue'
-import OrderHistory from './components/OrderHistory.vue'
 import TestimonialsPage from './components/TestimonialsPage.vue'
 import AddTestimonial from './components/AddTestimonial.vue'
 
@@ -52,21 +45,6 @@ export default new Router({
       path: '/item_list/item/add_testimonial',
       name: 'add_item_testimonial',
       component: AddItemTestimonial
-    },  
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    },
-    {
-      path: '/registration',
-      name: 'registration',
-      component: Registration
-    },  
-    {
-      path: '/forgot-password',
-      name: 'forgot-password',
-      component: ForgotPassword
     },
     {
       path: '/cart',
@@ -77,27 +55,7 @@ export default new Router({
       path: '/checkout',
       name: 'checkout',
       component: Checkout
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: Profile
-    },
-    {
-      path: '/change_password',
-      name: 'change_password',
-      component: ChangePassword
-    },
-    {
-      path: '/edit_profile',
-      name: 'edit_profile',
-      component: EditProfile
-    },
-    {
-      path: '/order_history',
-      name: 'order_history',
-      component: OrderHistory
-    },
+    },    
     {
       path: '/testimonials',
       name: 'testimonials',

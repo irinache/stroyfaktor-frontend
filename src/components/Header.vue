@@ -48,18 +48,9 @@
 										<li>
 											<a href="/#contacts">Контакты</a>
 										</li>
-										<li v-show="!is_logged_in">
-											<router-link to="/login" class="login icon"><span class="login-text">Войти</span></router-link>
-										</li>	
-										<li v-show="is_logged_in">											
-											<router-link v-show="is_logged_in" to="/profile" class="profile icon"><span class="login-text">Профиль</span></router-link>
-										</li>	
-										<li v-show="is_logged_in">											
-											<router-link v-show="is_logged_in" to="/cart" class="cart icon"><span class="login-text">Корзина</span></router-link>
-										</li>
-										<li v-show="is_logged_in">											
-											<router-link v-show="is_logged_in" to="/order_history" class="orders icon"><span class="login-text">История заказов</span></router-link>
-										</li>									
+										<li>											
+											<router-link to="/cart" class="cart icon"><span class="login-text">Корзина</span></router-link>
+										</li>																			
 									</ul>
 								</transition>									
 							</nav>	
@@ -124,7 +115,8 @@ li {
 	display: inline;
   list-style-type: none;
   color: @light_text;
-  font-family: Montserrat Medium;
+  font-family: Montserrat;
+  font-weight: 500;
   cursor: pointer;
 }
 a{
@@ -151,33 +143,12 @@ header{
 	vertical-align: middle;
 	transition: 0.4s;
 }
-.login{	
-	background: url("../assets/images/login_icon.png") no-repeat;
-}
-.profile{	
-	background: url("../assets/images/profile-icon.png") no-repeat;		
-}
 .cart{	
 	background: url("../assets/images/cart-icon.png") no-repeat;		
-}
-.orders{	
-	background: url("../assets/images/orders-icon.png") no-repeat;		
-}
-.orders:hover{
-	transition: 0.4s;	
-	background: url("../assets/images/orders-icon-hover.png") no-repeat;	
 }
 .cart:hover{
 	transition: 0.4s;	
 	background: url("../assets/images/cart-icon-hover.png") no-repeat;	
-}
-.login:hover{
-	transition: 0.4s;	
-	background: url("../assets/images/login_icon_hover.png") no-repeat;	
-}
-.profile:hover{
-	transition: 0.4s;	
-	background: url("../assets/images/profile-icon-hover.png") no-repeat;	
 }
 .drop-btn { 
   padding: 15px 0;

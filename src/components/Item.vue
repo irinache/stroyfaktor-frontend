@@ -265,7 +265,8 @@ h4{
 	margin-right: 3px;
 }
 .price{
-	font-family: Montserrat SemiBold;
+	font-family: Montserrat;
+	font-weight: 600;
 	color: @main_color;
 	font-size: 24px;
 	font-weight: bold;	

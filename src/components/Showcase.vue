@@ -37,7 +37,7 @@
 			</div>	
 			<div class="row">
 				<div class="col-md-12">
-					<router-link to="/categoties" class="button brdr-btn-dark-color btn-pos">
+					<router-link to="/categories" class="button brdr-btn-dark-color btn-pos">
 						Все товары и услуги
 					</router-link>
 				</div>
