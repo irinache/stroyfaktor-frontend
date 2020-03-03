@@ -112,12 +112,15 @@
 	top: 0;
 }
 .group{
-	margin-bottom: 80px; 
+	margin-bottom: 120px; 
 	height: 500px;
 	height: auto;
 	max-width: 2000px;
 	margin-right: auto;
 	margin-left: auto;
+}
+.group:last-child{
+	margin-bottom: 0;	
 }
 p{
 	line-height: 27px;
