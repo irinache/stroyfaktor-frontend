@@ -9,6 +9,8 @@ import Cart from './components/Cart.vue'
 import Checkout from './components/Checkout.vue'
 import TestimonialsPage from './components/TestimonialsPage.vue'
 import AddTestimonial from './components/AddTestimonial.vue'
+import OrderSuccess from './components/OrderSuccess.vue'
+import OrderFail from './components/OrderFail.vue'
 
 
 Vue.use(Router)
@@ -65,6 +67,16 @@ export default new Router({
       path: '/add_testimonial',
       name: 'add_testimonial',
       component: AddTestimonial
+    },
+    {
+      path: '/order_success',
+      name: 'order_success',
+      component: OrderSuccess
+    },
+    {
+      path: '/order_fail',
+      name: 'order_fail',
+      component: OrderFail
     },
   ],  
 })

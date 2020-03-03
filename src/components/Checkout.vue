@@ -225,7 +225,9 @@
 				} 
 				else {
 				// submit logic 
+					this.$router.push('/order_success');
 				}
+				
 
 			},
 			setPost(p){
@@ -372,12 +374,15 @@ textarea{
 }
 }
 @media(max-width: 359px){
-  .item{
-	img{		
-		width: 70px;		
-		margin-bottom: 15px;
+	.bg-block{
+		font-size: 14px;
 	}
-}
+	.item{
+		img{		
+			width: 70px;		
+			margin-bottom: 15px;
+		}
+	}
 }
 
 </style>
