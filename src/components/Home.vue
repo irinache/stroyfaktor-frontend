@@ -2,6 +2,7 @@
 	<div>
 		<SliderBlock/>
 		<AboutUs/>
+		<OurProducts/>
 		<Showcase/>
 		<Testimonials/>
 		<Contacts/>
@@ -13,6 +14,7 @@
 <script>
 	import SliderBlock from "../components/SliderBlock.vue"
 	import AboutUs from "../components/AboutUs.vue"
+	import OurProducts from "../components/OurProducts.vue"
 	import Showcase from "../components/Showcase.vue"
 	import Testimonials from "../components/Testimonials.vue"
 	import Contacts from "../components/Contacts.vue"
@@ -24,6 +26,7 @@
 		components: {
 			SliderBlock,
 			AboutUs,
+			OurProducts,
 			Showcase,
 			Testimonials,
 			Contacts,

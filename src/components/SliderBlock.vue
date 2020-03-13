@@ -77,9 +77,9 @@
 								<router-link class="button solid-button" to="/categories">Перейти к  покупкам</router-link>												
 							</div>
 							<div class="slider-nav">	
-								<div class="arr left" id="previous" v-on:click="clickPrev">						
+								<div class="arr left" v-on:click="clickPrev">						
 								</div>	
-								<div class="arr right" id="next" v-on:click="clickNext">						
+								<div class="arr right" v-on:click="clickNext">						
 								</div>													
 							</div>
 						</div>

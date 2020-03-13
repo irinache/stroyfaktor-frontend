@@ -1,5 +1,5 @@
 <template>
-	<div class="block" id="about_us">
+	<div class="block medium-bg" id="about_us">
 		<div class="group position-relative">
 			<div class="container">
 				<div class="row">
